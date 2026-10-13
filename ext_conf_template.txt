@@ -1,0 +1,104 @@
+# ==============================================================
+# Category: widgets
+# ==============================================================
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetTypo3Version
+enableWidgetTypo3Version = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetTypo3News
+enableWidgetTypo3News = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetMaintenanceContract
+enableWidgetMaintenanceContract = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetQuickLinks
+enableWidgetQuickLinks = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetSiteHealth
+enableWidgetSiteHealth = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetExtensionUpdates
+enableWidgetExtensionUpdates = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetEditorGuide
+enableWidgetEditorGuide = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetContentActivity
+enableWidgetContentActivity = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetRecentChanges
+enableWidgetRecentChanges = 1
+
+# cat=widgets/enable; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:enableWidgetStorage
+enableWidgetStorage = 1
+
+# cat=widgets/display; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:activityWeeks
+activityWeeks = 12
+
+# cat=widgets/display; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:recentChangesCount
+recentChangesCount = 8
+
+# ==============================================================
+# Category: api
+# ==============================================================
+
+# cat=api/urls; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:typo3VersionApiUrl
+typo3VersionApiUrl = https://get.typo3.org/api/v1/
+
+# cat=api/urls; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:typo3NewsFeedUrl
+typo3NewsFeedUrl = https://news.typo3.com/rss
+
+# cat=api/cache; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:newsCacheTtl
+newsCacheTtl = 3600
+
+# cat=api/cache; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:versionCacheTtl
+versionCacheTtl = 86400
+
+# cat=api/display; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:newsItemCount
+newsItemCount = 5
+
+# cat=api/display; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:requestTimeout
+requestTimeout = 10
+
+# ==============================================================
+# Category: branding
+# ==============================================================
+
+# cat=branding/contact; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:agencyName
+agencyName = jweiland.net
+
+# cat=branding/contact; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:agencyEmail
+agencyEmail = projects@jweiland.net
+
+# cat=branding/contact; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:agencyPhone
+agencyPhone = +49 711 94969-60
+
+# cat=branding/contact; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:agencyWebsite
+agencyWebsite = https://jweiland.net
+
+# cat=branding/appearance; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:welcomeMessage
+welcomeMessage =
+
+# cat=branding/appearance; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:showAgencyLogo
+showAgencyLogo = 1
+
+# ==============================================================
+# Category: quicklinks
+# ==============================================================
+
+# cat=quicklinks/links; type=text; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:customQuickLinks
+# Format: label|url|icon-identifier, one per line
+customQuickLinks =
+
+# ==============================================================
+# Category: maintenance
+# ==============================================================
+
+# cat=maintenance/renewal; type=int+; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:contractRenewalWarningDays
+contractRenewalWarningDays = 30
+
+# cat=maintenance/renewal; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:showContractSignupPrompt
+showContractSignupPrompt = 1
+
+# cat=maintenance/renewal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:contractSignupUrl
+contractSignupUrl = https://jweiland.net/typo3-wartungsvertrag.html

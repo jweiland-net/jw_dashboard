@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages" date="2024-01-01T00:00:00Z" product-name="jw_dashboard">
+        <header/>
+        <body>
+            <!-- Widget enables -->
+            <trans-unit id="enableWidgetTypo3Version">
+                <source>Enable TYPO3 Version Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetTypo3News">
+                <source>Enable TYPO3 News Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetMaintenanceContract">
+                <source>Enable Maintenance Contract Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetQuickLinks">
+                <source>Enable Quick Links Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetSiteHealth">
+                <source>Enable Site Health Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetExtensionUpdates">
+                <source>Enable Extension Updates Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetEditorGuide">
+                <source>Enable Editor Guide Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetContentActivity">
+                <source>Enable Content Activity Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetRecentChanges">
+                <source>Enable Recently Changed Widget</source>
+            </trans-unit>
+            <trans-unit id="enableWidgetStorage">
+                <source>Enable Storage Widget</source>
+            </trans-unit>
+            <trans-unit id="activityWeeks">
+                <source>Content Activity: number of weeks (1-52)</source>
+            </trans-unit>
+            <trans-unit id="recentChangesCount">
+                <source>Recently Changed: number of records (1-25)</source>
+            </trans-unit>
+            <!-- API / data sources -->
+            <trans-unit id="typo3VersionApiUrl">
+                <source>TYPO3 Version API URL</source>
+            </trans-unit>
+            <trans-unit id="typo3NewsFeedUrl">
+                <source>TYPO3 News RSS Feed URL</source>
+            </trans-unit>
+            <trans-unit id="newsCacheTtl">
+                <source>News Cache TTL (seconds)</source>
+            </trans-unit>
+            <trans-unit id="versionCacheTtl">
+                <source>Version Cache TTL (seconds)</source>
+            </trans-unit>
+            <trans-unit id="newsItemCount">
+                <source>Number of News Items to Display</source>
+            </trans-unit>
+            <trans-unit id="requestTimeout">
+                <source>HTTP Request Timeout (seconds)</source>
+            </trans-unit>
+            <!-- Branding -->
+            <trans-unit id="agencyName">
+                <source>Agency Name</source>
+            </trans-unit>
+            <trans-unit id="agencyEmail">
+                <source>Agency E-Mail Address</source>
+            </trans-unit>
+            <trans-unit id="agencyPhone">
+                <source>Agency Phone Number</source>
+            </trans-unit>
+            <trans-unit id="agencyWebsite">
+                <source>Agency Website URL</source>
+            </trans-unit>
+            <trans-unit id="welcomeMessage">
+                <source>Welcome Message (HTML allowed)</source>
+            </trans-unit>
+            <trans-unit id="showAgencyLogo">
+                <source>Show Agency Logo</source>
+            </trans-unit>
+            <!-- Quick links -->
+            <trans-unit id="customQuickLinks">
+                <source>Custom Quick Links (label|url|icon-identifier, one per line)</source>
+            </trans-unit>
+            <!-- Maintenance -->
+            <trans-unit id="contractRenewalWarningDays">
+                <source>Contract Renewal Warning Days</source>
+            </trans-unit>
+            <trans-unit id="showContractSignupPrompt">
+                <source>Show Contract Signup Prompt When No Contract Exists</source>
+            </trans-unit>
+            <trans-unit id="contractSignupUrl">
+                <source>Contract Signup URL</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
