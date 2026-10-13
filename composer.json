@@ -1,0 +1,75 @@
+{
+	"name": "jweiland/jw-dashboard",
+	"description": "A configurable backend dashboard module for all jweiland projects",
+	"license": "GPL-2.0-or-later",
+	"type": "typo3-cms-extension",
+	"version": "1.0.0",
+	"keywords": [
+		"typo3",
+		"TYPO3 CMS",
+		"dashboard",
+		"backend",
+		"jweiland"
+	],
+	"authors": [
+		{
+			"name": "Stefan Froemken",
+			"email": "sfroemken@jweiland.net",
+			"role": "Lead Developer"
+		},
+		{
+			"name": "Hoja Mustaffa Abdul Latheef",
+			"email": "hlatheef@jweiland.net",
+			"role": "Senior Developer"
+		}
+	],
+	"homepage": "https://jweiland.net",
+	"support": {
+		"email": "projects@jweiland.net",
+		"issues": "https://github.com/jweiland-net/jw-dashboard/issues",
+		"source": "https://github.com/jweiland-net/jw-dashboard"
+	},
+	"require": {
+		"php": "^8.2",
+		"typo3/cms-backend": "^14.0",
+		"typo3/cms-core": "^14.0",
+		"typo3/cms-extbase": "^14.0",
+		"typo3/cms-fluid": "^14.0"
+	},
+	"require-dev": {
+		"ergebnis/composer-normalize": "^2.44",
+		"phpunit/phpunit": "^11.2.5",
+		"ssch/typo3-rector": "^3.6",
+		"typo3/coding-standards": "^0.8",
+		"typo3/testing-framework": "^9.0.1"
+	},
+	"replace": {
+		"typo3-ter/jw-dashboard": "self.version"
+	},
+	"autoload": {
+		"psr-4": {
+			"JWeiland\\JwDashboard\\": "Classes"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"JWeiland\\JwDashboard\\Tests\\": "Tests"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"bin-dir": ".Build/bin",
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "jw_dashboard",
+			"web-dir": ".Build/public"
+		}
+	}
+}
