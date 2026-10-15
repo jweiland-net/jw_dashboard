@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  JWeiland\JwDashboard\:
+    resource: '../Classes/*'
+    exclude:
+      - '../Classes/Domain/Model/*'
+
+  # Widgets are collected via the "jw_dashboard.widget" tag (see WidgetInterface)
+
+  JWeiland\JwDashboard\Controller\DashboardController:
+    public: true
+
+  JWeiland\JwDashboard\Controller\Ajax\WidgetRefreshController:
+    public: true
