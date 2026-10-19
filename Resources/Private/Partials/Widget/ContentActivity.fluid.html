@@ -1,0 +1,95 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<dl class="jw-kpis">
+    <div class="jw-kpi">
+        <dt class="jw-kpi__label"><f:translate key="jw_dashboard.messages:widget.contentActivity.total" /></dt>
+        <dd class="jw-kpi__value" data-count-up="{payload.total}">{payload.total}</dd>
+    </div>
+    <div class="jw-kpi">
+        <dt class="jw-kpi__label"><f:translate key="jw_dashboard.messages:widget.contentActivity.created" /></dt>
+        <dd class="jw-kpi__value" data-count-up="{payload.created}">{payload.created}</dd>
+    </div>
+    <div class="jw-kpi">
+        <dt class="jw-kpi__label"><f:translate key="jw_dashboard.messages:widget.contentActivity.updated" /></dt>
+        <dd class="jw-kpi__value" data-count-up="{payload.updated}">{payload.updated}</dd>
+    </div>
+    <div class="jw-kpi">
+        <dt class="jw-kpi__label"><f:translate key="jw_dashboard.messages:widget.contentActivity.editors" /></dt>
+        <dd class="jw-kpi__value" data-count-up="{payload.editors}">{payload.editors}</dd>
+    </div>
+</dl>
+
+<f:if condition="{payload.total}">
+    <f:then>
+        <figure class="jw-chart">
+            <figcaption class="jw-chart__caption">
+                <f:translate key="jw_dashboard.messages:widget.contentActivity.caption" arguments="{0: payload.numberOfWeeks}" />
+            </figcaption>
+            <div class="jw-chart__plot">
+                <div class="jw-chart__grid" aria-hidden="true">
+                    <span class="jw-chart__tick" style="--jw-position: 100"><span class="jw-chart__tick-label">{payload.axisMax}</span></span>
+                    <span class="jw-chart__tick" style="--jw-position: 50"><span class="jw-chart__tick-label">{payload.axisMid}</span></span>
+                    <span class="jw-chart__tick jw-chart__tick--baseline" style="--jw-position: 0"><span class="jw-chart__tick-label">0</span></span>
+                </div>
+                <ol class="jw-chart__bars" aria-label="{f:translate(key: 'jw_dashboard.messages:widget.contentActivity.caption', arguments: {0: payload.numberOfWeeks})}">
+                    <f:for each="{payload.bars}" as="bar" iteration="iterator">
+                        <f:variable name="weekLabel"><f:format.date date="{bar.start}" format="d.m." />–<f:format.date date="{bar.end}" format="d.m.Y" /></f:variable>
+                        <f:variable name="tooltip">{f:translate(key: 'jw_dashboard.messages:widget.contentActivity.tooltip', arguments: {0: weekLabel, 1: bar.count})}</f:variable>
+                        <li
+                            class="jw-chart__slot {f:if(condition: bar.isCurrent, then: 'jw-chart__slot--current')}"
+                            style="--jw-value: {bar.height}; --jw-index: {iterator.index}"
+                            tabindex="0"
+                            data-tooltip="{tooltip}"
+                            aria-label="{tooltip}"
+                        >
+                            <span class="jw-chart__bar"></span>
+                            <f:if condition="{bar.showLabel}">
+                                <span class="jw-chart__value" aria-hidden="true">{bar.count}</span>
+                            </f:if>
+                        </li>
+                    </f:for>
+                </ol>
+            </div>
+            <div class="jw-chart__axis" aria-hidden="true">
+                <f:for each="{payload.bars}" as="bar" iteration="iterator">
+                    <f:if condition="{iterator.isFirst}">
+                        <span><f:format.date date="{bar.start}" format="d.m." /></span>
+                    </f:if>
+                    <f:if condition="{iterator.isLast}">
+                        <span><f:translate key="jw_dashboard.messages:widget.contentActivity.thisWeek" /></span>
+                    </f:if>
+                </f:for>
+            </div>
+        </figure>
+
+        <details class="jw-data-table">
+            <summary><f:translate key="jw_dashboard.messages:dashboard.showTable" /></summary>
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"><f:translate key="jw_dashboard.messages:widget.contentActivity.week" /></th>
+                        <th scope="col" class="text-end"><f:translate key="jw_dashboard.messages:widget.contentActivity.total" /></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <f:for each="{payload.bars}" as="bar">
+                        <tr>
+                            <td><f:format.date date="{bar.start}" format="d.m.Y" /> – <f:format.date date="{bar.end}" format="d.m.Y" /></td>
+                            <td class="text-end">{bar.count}</td>
+                        </tr>
+                    </f:for>
+                </tbody>
+            </table>
+        </details>
+    </f:then>
+    <f:else>
+        <div class="jw-empty">
+            <p class="jw-empty__title"><f:translate key="jw_dashboard.messages:widget.contentActivity.empty" arguments="{0: payload.numberOfWeeks}" /></p>
+        </div>
+    </f:else>
+</f:if>
+
+</html>

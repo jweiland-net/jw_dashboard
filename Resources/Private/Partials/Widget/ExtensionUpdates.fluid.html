@@ -1,0 +1,25 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:if condition="{payload.extensions}">
+    <f:then>
+        <p class="jw-widget__intro">
+            <f:translate key="jw_dashboard.messages:widget.extensionUpdates.intro" arguments="{0: payload.count}" />
+        </p>
+        <ul class="jw-extensions">
+            <f:for each="{payload.extensions}" as="extension">
+                <li class="jw-extension" title="{extension.title}">
+                    <span class="jw-extension__key">{extension.key}</span>
+                    <span class="badge badge-default jw-extension__version">{extension.version}</span>
+                </li>
+            </f:for>
+        </ul>
+    </f:then>
+    <f:else>
+        <p class="jw-widget__intro"><f:translate key="jw_dashboard.messages:widget.extensionUpdates.none" /></p>
+    </f:else>
+</f:if>
+
+</html>

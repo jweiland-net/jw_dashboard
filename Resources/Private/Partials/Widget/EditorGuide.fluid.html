@@ -1,0 +1,56 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<div class="jw-guide__message">
+    <f:if condition="{payload.welcomeMessage}">
+        <f:then>{payload.welcomeMessage -> f:sanitize.html()}</f:then>
+        <f:else><p><f:translate key="jw_dashboard.messages:widget.editorGuide.defaultMessage" arguments="{0: payload.agencyName}" /></p></f:else>
+    </f:if>
+</div>
+
+<f:if condition="{payload.mainContact}">
+    <div class="jw-person">
+        <f:if condition="{payload.mainContact.photo}">
+            <f:then>
+                <f:image image="{payload.mainContact.photo}" width="96c" height="96c" class="jw-person__photo" alt="{payload.mainContact.name}" />
+            </f:then>
+            <f:else>
+                <span class="jw-person__photo jw-person__photo--placeholder"><core:icon identifier="actions-user" size="medium" /></span>
+            </f:else>
+        </f:if>
+        <div class="jw-person__info">
+            <span class="jw-label"><f:translate key="jw_dashboard.messages:widget.editorGuide.yourContact" /></span>
+            <strong class="jw-person__name">{payload.mainContact.name}</strong>
+            <f:if condition="{payload.mainContact.role}"><span class="jw-person__role">{payload.mainContact.role}</span></f:if>
+            <f:if condition="{payload.mainContact.email}">
+                <a href="mailto:{payload.mainContact.email}" class="jw-contact-line"><core:icon identifier="actions-envelope" size="small" />{payload.mainContact.email}</a>
+            </f:if>
+            <f:if condition="{payload.mainContact.phone}">
+                <span class="jw-contact-line"><core:icon identifier="actions-phone" size="small" />{payload.mainContact.phone}</span>
+            </f:if>
+        </div>
+    </div>
+</f:if>
+
+<f:if condition="{payload.showAgencyLogo}">
+    <div class="jw-agency">
+        <div class="jw-agency__logo" aria-hidden="true"><img src="{f:uri.resource(path: 'EXT:jw_dashboard/Resources/Public/Icons/module_jw_dashboard.svg')}" alt="" width="56" height="56" /></div>
+        <div class="jw-agency__info">
+            <strong class="jw-agency__name">{payload.agencyName}</strong>
+            <f:if condition="{payload.agencyEmail}">
+                <a href="mailto:{payload.agencyEmail}" class="jw-contact-line"><core:icon identifier="actions-envelope" size="small" />{payload.agencyEmail}</a>
+            </f:if>
+            <f:if condition="{payload.agencyPhone}">
+                <a href="tel:{payload.agencyPhoneUri}" class="jw-contact-line"><core:icon identifier="actions-phone" size="small" />{payload.agencyPhone}</a>
+            </f:if>
+            <f:if condition="{payload.agencyWebsite}">
+                <a href="{payload.agencyWebsite}" target="_blank" rel="noopener noreferrer" class="jw-contact-line"><core:icon identifier="actions-globe" size="small" />{payload.agencyWebsiteLabel}</a>
+            </f:if>
+        </div>
+    </div>
+</f:if>
+
+</html>

@@ -1,0 +1,39 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<dl class="jw-metrics">
+    <div class="jw-metric">
+        <dt class="jw-metric__label"><f:translate key="jw_dashboard.messages:widget.siteHealth.pages" /></dt>
+        <dd class="jw-metric__value" data-count-up="{payload.pageCount}">{payload.pageCount}</dd>
+    </div>
+    <div class="jw-metric">
+        <dt class="jw-metric__label"><f:translate key="jw_dashboard.messages:widget.siteHealth.hiddenPages" /></dt>
+        <dd class="jw-metric__value" data-count-up="{payload.hiddenPageCount}">{payload.hiddenPageCount}</dd>
+    </div>
+    <div class="jw-metric">
+        <dt class="jw-metric__label"><f:translate key="jw_dashboard.messages:widget.siteHealth.files" /></dt>
+        <dd class="jw-metric__value" data-count-up="{payload.fileCount}">{payload.fileCount}</dd>
+    </div>
+    <div class="jw-metric {f:if(condition: payload.brokenLinksCount, then: 'jw-metric--danger')}">
+        <dt class="jw-metric__label"><f:translate key="jw_dashboard.messages:widget.siteHealth.brokenLinks" /></dt>
+        <dd class="jw-metric__value">
+            <f:if condition="{payload.linkvalidatorInstalled}">
+                <f:then><span data-count-up="{payload.brokenLinksCount}">{payload.brokenLinksCount}</span></f:then>
+                <f:else><span class="jw-metric__na" title="{f:translate(key: 'jw_dashboard.messages:widget.siteHealth.notInstalled', arguments: {0: 'linkvalidator'})}">–</span></f:else>
+            </f:if>
+        </dd>
+    </div>
+    <div class="jw-metric">
+        <dt class="jw-metric__label"><f:translate key="jw_dashboard.messages:widget.siteHealth.schedulerTasks" /></dt>
+        <dd class="jw-metric__value">
+            <f:if condition="{payload.schedulerInstalled}">
+                <f:then><span data-count-up="{payload.schedulerTaskCount}">{payload.schedulerTaskCount}</span></f:then>
+                <f:else><span class="jw-metric__na" title="{f:translate(key: 'jw_dashboard.messages:widget.siteHealth.notInstalled', arguments: {0: 'scheduler'})}">–</span></f:else>
+            </f:if>
+        </dd>
+    </div>
+</dl>
+
+</html>

@@ -1,0 +1,53 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:if condition="{payload.totalCount}">
+    <f:then>
+        <div class="jw-figure">
+            <span class="jw-figure__value">{payload.totalSize -> f:format.bytes(decimals: 1)}</span>
+            <span class="jw-figure__label">
+                <f:translate key="jw_dashboard.messages:widget.storage.{f:if(condition: '{payload.totalCount} == 1', then: 'file', else: 'files')}" arguments="{0: payload.totalCount}" />
+            </span>
+        </div>
+
+        <div class="jw-stacked" aria-hidden="true">
+            <f:for each="{payload.segments}" as="segment" iteration="iterator">
+                <f:if condition="{segment.size}">
+                    <span
+                        class="jw-stacked__segment jw-category--{segment.key}"
+                        style="--jw-value: {segment.share}; --jw-index: {iterator.index}"
+                        title="{f:translate(key: 'jw_dashboard.messages:widget.storage.category.{segment.key}')}: {segment.size -> f:format.bytes(decimals: 1)}"
+                    ></span>
+                </f:if>
+            </f:for>
+        </div>
+
+        <ul class="jw-legend">
+            <f:for each="{payload.segments}" as="segment">
+                <li class="jw-legend__item">
+                    <span class="jw-legend__swatch jw-category--{segment.key}" aria-hidden="true"></span>
+                    <span class="jw-legend__label"><f:translate key="jw_dashboard.messages:widget.storage.category.{segment.key}" /></span>
+                    <span class="jw-legend__value">
+                        {segment.size -> f:format.bytes(decimals: 1)}
+                        <span class="jw-legend__share">
+                            <f:if condition="{segment.isTiny}">
+                                <f:then>&lt; 0.1 %</f:then>
+                                <f:else>{segment.share -> f:format.number(decimals: 1)} %</f:else>
+                            </f:if>
+                        </span>
+                    </span>
+                    <span class="jw-legend__count"><f:translate key="jw_dashboard.messages:widget.storage.{f:if(condition: '{segment.count} == 1', then: 'file', else: 'files')}" arguments="{0: segment.count}" /></span>
+                </li>
+            </f:for>
+        </ul>
+    </f:then>
+    <f:else>
+        <div class="jw-empty">
+            <p class="jw-empty__title"><f:translate key="jw_dashboard.messages:widget.storage.empty" /></p>
+        </div>
+    </f:else>
+</f:if>
+
+</html>

@@ -1,0 +1,32 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<ul class="jw-news">
+    <f:for each="{payload.items}" as="item">
+        <li class="jw-news__item">
+            <f:if condition="{item.pubDate}">
+                <time class="jw-news__date" datetime="{f:format.date(date: item.pubDate, format: 'c')}">
+                    <span class="jw-news__day"><f:format.date date="{item.pubDate}" format="d" /></span>
+                    <span class="jw-news__month"><f:format.date date="{item.pubDate}" format="M Y" /></span>
+                </time>
+            </f:if>
+            <div class="jw-news__content">
+                <a href="{item.link}" target="_blank" rel="noopener noreferrer" class="jw-news__title">{item.title}</a>
+                <f:if condition="{item.description}">
+                    <p class="jw-news__teaser">{item.description -> f:format.crop(maxCharacters: 160, respectWordBoundaries: true)}</p>
+                </f:if>
+            </div>
+        </li>
+    </f:for>
+</ul>
+<div class="jw-widget__footer">
+    <a href="https://news.typo3.com" target="_blank" rel="noopener noreferrer" class="jw-link">
+        <f:translate key="jw_dashboard.messages:widget.typo3News.allNews" />
+        <core:icon identifier="actions-window-open" size="small" />
+    </a>
+</div>
+
+</html>

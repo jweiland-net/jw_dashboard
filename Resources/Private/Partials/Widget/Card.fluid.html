@@ -1,0 +1,43 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:variable name="title">{f:translate(key: widget.title, default: widget.title)}</f:variable>
+<section
+    class="card jw-widget jw-widget--{widget.size}"
+    style="--jw-index: {index}"
+    data-widget-id="{widget.identifier}"
+    {f:if(condition: widget.deferred, then: 'data-widget-deferred')}
+    aria-labelledby="jw-widget-{widget.identifier}-title"
+>
+    <div class="card-header jw-widget__header">
+        <div class="card-icon jw-widget__icon">
+            <core:icon identifier="{widget.iconIdentifier}" size="medium" />
+        </div>
+        <div class="card-header-body">
+            <h2 class="card-title" id="jw-widget-{widget.identifier}-title">{title}</h2>
+        </div>
+        <f:if condition="{widget.refreshable}">
+            <f:variable name="refreshLabel">{f:translate(key: 'jw_dashboard.messages:dashboard.widget.refresh', arguments: {0: title})}</f:variable>
+            <button
+                type="button"
+                class="btn btn-sm btn-borderless jw-widget__refresh"
+                data-widget-refresh="{widget.identifier}"
+                title="{refreshLabel}"
+                aria-label="{refreshLabel}"
+            >
+                <core:icon identifier="actions-refresh" size="small" />
+            </button>
+        </f:if>
+    </div>
+    <div class="card-body jw-widget__body" data-widget-body aria-live="polite" aria-busy="{f:if(condition: widget.deferred, then: 'true', else: 'false')}">
+        <f:if condition="{widget.deferred}">
+            <f:then><f:render partial="Widget/Skeleton" arguments="{widget: widget}" /></f:then>
+            <f:else><f:render partial="Widget/Body" arguments="{widget: widget}" /></f:else>
+        </f:if>
+    </div>
+</section>
+
+</html>

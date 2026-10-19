@@ -1,0 +1,44 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:if condition="{payload.items}">
+    <f:then>
+        <ol class="jw-timeline">
+            <f:for each="{payload.items}" as="item" iteration="iterator">
+                <li class="jw-timeline__item" style="--jw-index: {iterator.index}">
+                    <span class="jw-timeline__icon">
+                        <core:iconForRecord table="{item.table}" row="{item.row}" size="small" />
+                    </span>
+                    <div class="jw-timeline__content">
+                        <a href="{item.editUrl}" class="jw-timeline__title" title="{f:translate(key: 'jw_dashboard.messages:widget.recentChanges.edit')}">{item.title}</a>
+                        <span class="jw-timeline__meta">
+                            <span class="badge badge-{f:if(condition: '{item.action} == created', then: 'success', else: 'default')}">
+                                <f:translate key="jw_dashboard.messages:widget.recentChanges.action.{item.action}" />
+                            </span>
+                            <time datetime="{f:format.date(date: item.tstamp, format: 'c')}" title="{f:format.date(date: item.tstamp, format: 'd.m.Y H:i')}">
+                                <f:translate key="jw_dashboard.messages:widget.recentChanges.ago" arguments="{0: item.age}" />
+                            </time>
+                            <f:if condition="{item.userName}">
+                                <span>· {item.userName}</span>
+                            </f:if>
+                        </span>
+                    </div>
+                    <a href="{item.pageUrl}" class="btn btn-sm btn-borderless jw-timeline__action" title="{f:translate(key: 'jw_dashboard.messages:widget.recentChanges.openPage')}" aria-label="{f:translate(key: 'jw_dashboard.messages:widget.recentChanges.openPage')}: {item.title}">
+                        <core:icon identifier="actions-arrow-right" size="small" />
+                    </a>
+                </li>
+            </f:for>
+        </ol>
+    </f:then>
+    <f:else>
+        <div class="jw-empty">
+            <core:icon identifier="actions-document-edit" size="large" />
+            <p class="jw-empty__title"><f:translate key="jw_dashboard.messages:widget.recentChanges.empty" /></p>
+        </div>
+    </f:else>
+</f:if>
+
+</html>

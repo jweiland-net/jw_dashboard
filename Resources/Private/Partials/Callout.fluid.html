@@ -1,0 +1,32 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:comment>
+    Backend callout. Arguments: state (success|info|warning|danger|notice), icon, title, body,
+    optional linkUrl + linkLabel (opens in new window)
+</f:comment>
+<div class="callout callout-{state} callout-sm jw-callout">
+    <div class="callout-icon">
+        <span class="icon-emphasized">
+            <core:icon identifier="{icon}" size="small" />
+        </span>
+    </div>
+    <div class="callout-content">
+        <f:if condition="{title}">
+            <div class="callout-title">{title}</div>
+        </f:if>
+        <f:if condition="{body} || {linkUrl}">
+            <div class="callout-body">
+                {body}
+                <f:if condition="{linkUrl}">
+                    <a href="{linkUrl}" target="_blank" rel="noopener noreferrer" class="jw-callout__link">{linkLabel}</a>
+                </f:if>
+            </div>
+        </f:if>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,101 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<div class="jw-version">
+    <dl class="jw-version__numbers">
+        <div class="jw-version__item">
+            <dt class="jw-label"><f:translate key="jw_dashboard.messages:widget.typo3Version.installed" /></dt>
+            <dd class="jw-version__number">{payload.installed}</dd>
+        </div>
+        <f:if condition="{payload.latest}">
+            <div class="jw-version__item">
+                <dt class="jw-label"><f:translate key="jw_dashboard.messages:widget.typo3Version.latest" /></dt>
+                <dd class="jw-version__number jw-version__number--muted">{payload.latest}</dd>
+            </div>
+        </f:if>
+    </dl>
+
+    <f:if condition="{payload.checkFailed}">
+        <f:then>
+            <f:render partial="Callout" arguments="{
+                state: 'info',
+                icon: 'actions-info-circle',
+                title: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.checkFailed\')}'
+            }" />
+        </f:then>
+        <f:else if="{payload.isUpToDate}">
+            <f:render partial="Callout" arguments="{
+                state: 'success',
+                icon: 'actions-check-circle',
+                title: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.upToDate\')}'
+            }" />
+        </f:else>
+        <f:else if="{payload.isSecurityRelease}">
+            <f:render partial="Callout" arguments="{
+                state: 'danger',
+                icon: 'actions-shield',
+                title: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.securityUpdate\')}',
+                body: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.securityUpdate.body\', arguments: {0: payload.latest})}',
+                linkUrl: payload.releaseUrl,
+                linkLabel: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.releaseNotes\')}'
+            }" />
+        </f:else>
+        <f:else>
+            <f:render partial="Callout" arguments="{
+                state: 'warning',
+                icon: 'actions-exclamation-triangle',
+                title: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.updateAvailable\')}',
+                body: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.updateAvailable.body\', arguments: {0: payload.latest})}',
+                linkUrl: payload.releaseUrl,
+                linkLabel: '{f:translate(key: \'jw_dashboard.messages:widget.typo3Version.releaseNotes\')}'
+            }" />
+        </f:else>
+    </f:if>
+
+    <f:if condition="{payload.lifecycle}">
+        <f:variable name="lifecycle" value="{payload.lifecycle}" />
+        <f:variable name="maintainedUntil"><f:format.date date="{lifecycle.maintainedUntil}" format="d.m.Y" /></f:variable>
+        <f:variable name="eltsUntil"><f:format.date date="{lifecycle.eltsUntil}" format="d.m.Y" /></f:variable>
+        <div class="jw-lifecycle jw-lifecycle--{lifecycle.phase}">
+            <div class="jw-lifecycle__head">
+                <span class="jw-label"><f:translate key="jw_dashboard.messages:widget.typo3Version.lifecycle" arguments="{0: payload.majorVersion}" /></span>
+                <span class="jw-lifecycle__remaining">
+                    <f:if condition="{lifecycle.phase} == unsupported">
+                        <f:then><f:translate key="jw_dashboard.messages:widget.typo3Version.lifecycle.unsupported" /></f:then>
+                        <f:else if="{lifecycle.yearsLeft}"><f:translate key="jw_dashboard.messages:widget.typo3Version.lifecycle.leftYears" arguments="{0: lifecycle.yearsLeft, 1: lifecycle.monthsLeft}" /></f:else>
+                        <f:else><f:translate key="jw_dashboard.messages:widget.typo3Version.lifecycle.leftDays" arguments="{0: lifecycle.daysLeft}" /></f:else>
+                    </f:if>
+                </span>
+            </div>
+            <div
+                class="jw-lifecycle__track"
+                style="--jw-regular: {lifecycle.regularShare}; --jw-value: {lifecycle.todayPosition}"
+                role="img"
+                aria-label="{f:translate(key: 'jw_dashboard.messages:widget.typo3Version.lifecycle.aria', arguments: {0: maintainedUntil, 1: eltsUntil})}"
+            >
+                <span class="jw-lifecycle__phase jw-lifecycle__phase--regular"></span>
+                <f:if condition="{lifecycle.hasElts}">
+                    <span class="jw-lifecycle__phase jw-lifecycle__phase--elts"></span>
+                </f:if>
+                <span class="jw-lifecycle__elapsed"></span>
+                <span class="jw-lifecycle__today"></span>
+            </div>
+            <dl class="jw-lifecycle__legend">
+                <div>
+                    <dt><span class="jw-lifecycle__key jw-lifecycle__key--regular" aria-hidden="true"></span><f:translate key="jw_dashboard.messages:widget.typo3Version.lifecycle.regular" /></dt>
+                    <dd>{maintainedUntil}</dd>
+                </div>
+                <f:if condition="{lifecycle.hasElts}">
+                    <div>
+                        <dt><span class="jw-lifecycle__key jw-lifecycle__key--elts" aria-hidden="true"></span><f:translate key="jw_dashboard.messages:widget.typo3Version.lifecycle.elts" /></dt>
+                        <dd>{eltsUntil}</dd>
+                    </div>
+                </f:if>
+            </dl>
+        </div>
+    </f:if>
+</div>
+
+</html>

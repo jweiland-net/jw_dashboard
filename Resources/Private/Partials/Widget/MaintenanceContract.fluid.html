@@ -1,0 +1,85 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:if condition="{payload.contracts}">
+    <f:then>
+        <f:if condition="{payload.expiringCount}">
+            <f:render partial="Callout" arguments="{
+                state: 'warning',
+                icon: 'actions-exclamation-triangle',
+                title: '{f:translate(key: \'jw_dashboard.messages:widget.maintenanceContract.renewalHint\', arguments: {0: payload.expiringCount})}'
+            }" />
+        </f:if>
+        <ul class="jw-contracts">
+            <f:for each="{payload.contracts}" as="item">
+                <li class="jw-contract">
+                    <div class="jw-contract__main">
+                        <span class="jw-contract__title">{item.contract.title}</span>
+                        <span class="jw-contract__meta">
+                            {item.contract.clientName}
+                            <f:if condition="{item.contract.clientNumber}">· {item.contract.clientNumber}</f:if>
+                            · <f:translate key="jw_dashboard.messages:contract.type.{item.contract.contractType}" default="{item.contract.contractType}" />
+                        </span>
+                        <f:if condition="{item.contract.contactPersons}">
+                            <span class="jw-contract__contacts">
+                                <core:icon identifier="actions-user" size="small" />
+                                <f:for each="{item.contract.contactPersons}" as="person">
+                                    <span class="jw-contract__person"><f:if condition="{person.email}"><f:then><a href="mailto:{person.email}">{person.name}</a></f:then><f:else>{person.name}</f:else></f:if></span>
+                                </f:for>
+                            </span>
+                        </f:if>
+                        <f:if condition="{item.hasProgress}">
+                            <span
+                                class="jw-meter jw-meter--{item.severity}"
+                                style="--jw-value: {item.progress}"
+                                role="meter"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="{item.progress}"
+                                aria-label="{f:translate(key: 'jw_dashboard.messages:widget.maintenanceContract.progress', arguments: {0: item.progress})}"
+                                title="{f:translate(key: 'jw_dashboard.messages:widget.maintenanceContract.progress', arguments: {0: item.progress})}"
+                            ><span class="jw-meter__fill"></span></span>
+                        </f:if>
+                    </div>
+                    <div class="jw-contract__status">
+                        <span class="badge badge-{item.severity}">
+                            <f:translate key="jw_dashboard.messages:contract.state.{item.state}" />
+                        </span>
+                        <f:if condition="{item.contract.endDate}">
+                            <span class="jw-contract__date">
+                                <f:translate key="jw_dashboard.messages:widget.maintenanceContract.until" />
+                                <f:format.date date="{item.contract.endDate}" format="d.m.Y" />
+                            </span>
+                        </f:if>
+                    </div>
+                </li>
+            </f:for>
+        </ul>
+    </f:then>
+    <f:else>
+        <div class="jw-empty">
+            <core:icon identifier="actions-certificate" size="large" />
+            <p class="jw-empty__title"><f:translate key="jw_dashboard.messages:widget.maintenanceContract.noContract" /></p>
+            <f:if condition="{payload.showSignupPrompt}">
+                <p class="jw-empty__text"><f:translate key="jw_dashboard.messages:widget.maintenanceContract.signupPrompt" /></p>
+                <a href="{payload.signupUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <f:translate key="jw_dashboard.messages:widget.maintenanceContract.signupLink" />
+                </a>
+            </f:if>
+        </div>
+    </f:else>
+</f:if>
+
+<f:if condition="{payload.manageUrl}">
+    <div class="jw-widget__footer">
+        <a href="{payload.manageUrl}" class="jw-link">
+            <core:icon identifier="actions-open" size="small" />
+            <f:translate key="jw_dashboard.messages:widget.maintenanceContract.manage" />
+        </a>
+    </div>
+</f:if>
+
+</html>

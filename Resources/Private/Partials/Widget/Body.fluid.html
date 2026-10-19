@@ -1,0 +1,20 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:if condition="{widget.data.available}">
+    <f:then>
+        <f:render partial="{widget.partial}" arguments="{widget: widget, payload: widget.data.payload}" />
+    </f:then>
+    <f:else>
+        <f:render partial="Callout" arguments="{
+            state: 'notice',
+            icon: 'actions-exclamation-circle',
+            title: '{f:translate(key: \'jw_dashboard.messages:dashboard.widget.notAvailable\')}',
+            body: widget.data.errorMessage
+        }" />
+    </f:else>
+</f:if>
+
+</html>
