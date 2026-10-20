@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages" date="2024-01-01T00:00:00Z" product-name="jw_dashboard">
+        <header/>
+        <body>
+            <!-- TCA: Contact Person -->
+            <trans-unit id="tx_jwdashboard_contact_person">
+                <source>Contact Person</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.name">
+                <source>Full Name</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.email">
+                <source>E-Mail Address</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.mobile">
+                <source>Mobile</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.role">
+                <source>Role / Position</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.photo">
+                <source>Photo</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.is_main_contact">
+                <source>Primary Contact</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.bio">
+                <source>Short Bio</source>
+            </trans-unit>
+            <trans-unit id="tab.contact">
+                <source>Contact</source>
+            </trans-unit>
+            <trans-unit id="tab.bio">
+                <source>Bio</source>
+            </trans-unit>
+            <!-- TCA: Contract -->
+            <trans-unit id="tx_jwdashboard_contract">
+                <source>Maintenance Contract</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.title">
+                <source>Contract Title</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.client_name">
+                <source>Client Name</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.client_number">
+                <source>Client Number</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.start_date">
+                <source>Start Date</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.end_date">
+                <source>End Date</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.contract_type">
+                <source>Contract Type</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.renewal_prompt_days">
+                <source>Renewal Warning (Days)</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.notes">
+                <source>Notes</source>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.contact_persons">
+                <source>Assigned Contact Persons</source>
+            </trans-unit>
+            <trans-unit id="tab.dates">
+                <source>Dates</source>
+            </trans-unit>
+            <trans-unit id="tab.contacts">
+                <source>Contacts</source>
+            </trans-unit>
+            <!-- Contract status labels -->
+            <trans-unit id="contract.status.active">
+                <source>Active</source>
+            </trans-unit>
+            <trans-unit id="contract.status.expiring">
+                <source>Expiring Soon</source>
+            </trans-unit>
+            <trans-unit id="contract.status.expired">
+                <source>Expired</source>
+            </trans-unit>
+            <trans-unit id="contract.status.cancelled">
+                <source>Cancelled</source>
+            </trans-unit>
+            <!-- Contract type labels -->
+            <trans-unit id="contract.type.maintenance">
+                <source>Maintenance</source>
+            </trans-unit>
+            <trans-unit id="contract.type.hosting">
+                <source>Hosting</source>
+            </trans-unit>
+            <trans-unit id="contract.type.support">
+                <source>Support</source>
+            </trans-unit>
+            <trans-unit id="contract.type.full_service">
+                <source>Full Service</source>
+            </trans-unit>
+            <!-- Dashboard -->
+            <trans-unit id="dashboard.title">
+                <source>JW Dashboard</source>
+            </trans-unit>
+            <trans-unit id="dashboard.noWidgets.title">
+                <source>No widgets enabled</source>
+            </trans-unit>
+            <trans-unit id="dashboard.noWidgets.body">
+                <source>All widgets are disabled. Enable them in Admin Tools &gt; Settings &gt; Extension Configuration &gt; jw_dashboard.</source>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.refresh">
+                <source>Refresh %s</source>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.refreshFailed">
+                <source>The widget could not be refreshed.</source>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.notAvailable">
+                <source>Widget data is currently unavailable.</source>
+            </trans-unit>
+            <!-- Widget: TYPO3 Version -->
+            <trans-unit id="widget.typo3Version.title">
+                <source>TYPO3 Version</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.installed">
+                <source>Installed</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.latest">
+                <source>Latest</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.checkFailed">
+                <source>The latest TYPO3 version could not be determined.</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.upToDate">
+                <source>Your TYPO3 installation is up to date.</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.updateAvailable">
+                <source>Update available</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.updateAvailable.body">
+                <source>TYPO3 %s is available.</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.securityUpdate">
+                <source>Security update available</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.securityUpdate.body">
+                <source>TYPO3 %s fixes security issues. Please update as soon as possible.</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.releaseNotes">
+                <source>Release information</source>
+            </trans-unit>
+            <!-- Widget: TYPO3 News -->
+            <trans-unit id="widget.typo3News.title">
+                <source>TYPO3 News</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3News.allNews">
+                <source>All TYPO3 news</source>
+            </trans-unit>
+            <!-- Widget: Site Health -->
+            <trans-unit id="widget.siteHealth.title">
+                <source>Site Health</source>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.pages">
+                <source>Published pages</source>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.hiddenPages">
+                <source>Hidden pages</source>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.files">
+                <source>Files</source>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.brokenLinks">
+                <source>Broken links</source>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.schedulerTasks">
+                <source>Active scheduler tasks</source>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.notInstalled">
+                <source>System extension "%s" is not installed</source>
+            </trans-unit>
+            <!-- Widget: Maintenance Contract -->
+            <trans-unit id="widget.maintenanceContract.title">
+                <source>Maintenance Contract</source>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.renewalHint">
+                <source>%d contract(s) need your attention.</source>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.until">
+                <source>until</source>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.noContract">
+                <source>No maintenance contract found.</source>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.signupPrompt">
+                <source>Consider signing up for a maintenance contract to keep your TYPO3 installation secure and up to date.</source>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.signupLink">
+                <source>Learn more about maintenance contracts</source>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.manage">
+                <source>Manage contracts</source>
+            </trans-unit>
+            <trans-unit id="contract.state.active">
+                <source>Active</source>
+            </trans-unit>
+            <trans-unit id="contract.state.expiring">
+                <source>Renewal due</source>
+            </trans-unit>
+            <trans-unit id="contract.state.expired">
+                <source>Expired</source>
+            </trans-unit>
+            <trans-unit id="contract.state.unlimited">
+                <source>Unlimited</source>
+            </trans-unit>
+            <!-- Widget: Quick Links -->
+            <trans-unit id="widget.quickLinks.title">
+                <source>Quick Links</source>
+            </trans-unit>
+            <trans-unit id="widget.quickLinks.project">
+                <source>Project</source>
+            </trans-unit>
+            <trans-unit id="widget.quickLinks.backend">
+                <source>Backend</source>
+            </trans-unit>
+            <!-- Widget: Extensions -->
+            <trans-unit id="widget.extensionUpdates.title">
+                <source>Installed Extensions</source>
+            </trans-unit>
+            <trans-unit id="widget.extensionUpdates.intro">
+                <source>%d third-party extensions are active. Please review them regularly for updates.</source>
+            </trans-unit>
+            <trans-unit id="widget.extensionUpdates.none">
+                <source>No third-party extensions are active.</source>
+            </trans-unit>
+            <!-- Widget: Editor Guide -->
+            <trans-unit id="widget.editorGuide.title">
+                <source>Editor Guide</source>
+            </trans-unit>
+            <trans-unit id="widget.editorGuide.defaultMessage">
+                <source>Need help with your website? The team of %s is happy to support you.</source>
+            </trans-unit>
+            <trans-unit id="widget.editorGuide.yourContact">
+                <source>Your personal contact</source>
+            </trans-unit>
+            <!-- Dashboard (v2) -->
+            <trans-unit id="dashboard.greeting.morning">
+                <source>Good morning, %s</source>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.afternoon">
+                <source>Good afternoon, %s</source>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.evening">
+                <source>Good evening, %s</source>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.morning.anonymous">
+                <source>Good morning</source>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.afternoon.anonymous">
+                <source>Good afternoon</source>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.evening.anonymous">
+                <source>Good evening</source>
+            </trans-unit>
+            <trans-unit id="dashboard.lead">
+                <source>Here's what is happening on your website.</source>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.loading">
+                <source>Loading widget data…</source>
+            </trans-unit>
+            <trans-unit id="dashboard.showTable">
+                <source>Show data as table</source>
+            </trans-unit>
+            <!-- Widget: TYPO3 Version – lifecycle -->
+            <trans-unit id="widget.typo3Version.lifecycle">
+                <source>TYPO3 %d support</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.leftYears">
+                <source>%1$d years, %2$d months left</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.leftDays">
+                <source>%d days left</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.unsupported">
+                <source>No longer supported</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.regular">
+                <source>Free support until</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.elts">
+                <source>ELTS until</source>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.aria">
+                <source>Support timeline: free support until %1$s, extended long term support until %2$s</source>
+            </trans-unit>
+            <!-- Widget: Content Activity -->
+            <trans-unit id="widget.contentActivity.title">
+                <source>Content Activity</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.total">
+                <source>Changes</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.created">
+                <source>Created</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.updated">
+                <source>Updated</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.editors">
+                <source>Active editors</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.caption">
+                <source>Record changes per week, last %d weeks</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.tooltip">
+                <source>%1$s: %2$d changes</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.thisWeek">
+                <source>This week</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.week">
+                <source>Week</source>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.empty">
+                <source>No changes in the last %d weeks.</source>
+            </trans-unit>
+            <!-- Widget: Recently Changed -->
+            <trans-unit id="widget.recentChanges.title">
+                <source>Recently Changed</source>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.action.created">
+                <source>New</source>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.action.updated">
+                <source>Edited</source>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.ago">
+                <source>%s ago</source>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.edit">
+                <source>Edit record</source>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.openPage">
+                <source>Open page</source>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.empty">
+                <source>No recently changed pages or content elements.</source>
+            </trans-unit>
+            <!-- Widget: Storage -->
+            <trans-unit id="widget.storage.title">
+                <source>Storage</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.file">
+                <source>%d file</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.files">
+                <source>%d files</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.empty">
+                <source>No files found.</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.images">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.documents">
+                <source>Documents</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.videos">
+                <source>Videos</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.audio">
+                <source>Audio</source>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.other">
+                <source>Other</source>
+            </trans-unit>
+            <!-- Widget: Maintenance Contract – term -->
+            <trans-unit id="widget.maintenanceContract.progress">
+                <source>%s %% of the contract term elapsed</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

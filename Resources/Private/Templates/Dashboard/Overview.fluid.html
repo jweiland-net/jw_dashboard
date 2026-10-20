@@ -1,0 +1,52 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+    <div class="jw-dashboard">
+        <header class="jw-hero">
+            <div class="jw-hero__text">
+                <p class="jw-hero__eyebrow">
+                    <f:translate key="jw_dashboard.messages:dashboard.title" />
+                    <span aria-hidden="true">·</span>
+                    <time datetime="{f:format.date(date: 'now', format: 'Y-m-d')}"><f:format.date date="now" format="d.m.Y" /></time>
+                </p>
+                <h1 class="jw-hero__title">
+                    <f:if condition="{userName}">
+                        <f:then><f:translate key="jw_dashboard.messages:dashboard.greeting.{greeting}" arguments="{0: userName}" /></f:then>
+                        <f:else><f:translate key="jw_dashboard.messages:dashboard.greeting.{greeting}.anonymous" /></f:else>
+                    </f:if>
+                </h1>
+                <p class="jw-hero__lead"><f:translate key="jw_dashboard.messages:dashboard.lead" /></p>
+            </div>
+            <div class="jw-hero__decoration" aria-hidden="true">
+                <span class="jw-hero__orb jw-hero__orb--1"></span>
+                <span class="jw-hero__orb jw-hero__orb--2"></span>
+                <span class="jw-hero__orb jw-hero__orb--3"></span>
+            </div>
+        </header>
+
+        <f:if condition="{widgets}">
+            <f:then>
+                <div class="jw-dashboard__grid">
+                    <f:for each="{widgets}" as="widget" iteration="iterator">
+                        <f:render partial="Widget/Card" arguments="{widget: widget, index: iterator.index}" />
+                    </f:for>
+                </div>
+            </f:then>
+            <f:else>
+                <f:render partial="Callout" arguments="{
+                    state: 'info',
+                    icon: 'actions-info-circle',
+                    title: '{f:translate(key: \'jw_dashboard.messages:dashboard.noWidgets.title\')}',
+                    body: '{f:translate(key: \'jw_dashboard.messages:dashboard.noWidgets.body\')}'
+                }" />
+            </f:else>
+        </f:if>
+    </div>
+</f:section>
+
+</html>

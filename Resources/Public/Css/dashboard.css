@@ -1,0 +1,1346 @@
+/*
+ * EXT:jw_dashboard – backend module styles
+ *
+ * Built on top of the TYPO3 backend components (card, callout, badge, btn) and design tokens
+ * (--typo3-*), so light/dark mode and backend themes are supported out of the box.
+ */
+
+.jw-dashboard {
+    --jw-gap: var(--typo3-card-grid-gap, 1rem);
+    --jw-radius: var(--typo3-component-border-radius, 0.5rem);
+    --jw-muted: var(--typo3-text-color-variant);
+    --jw-subtle-bg: var(--typo3-surface-container-base);
+    --jw-border: color-mix(in srgb, var(--typo3-surface-container-low), var(--typo3-text-color-base) var(--typo3-border-mix, 17.5%));
+    /* jweiland.net brand (favicon / EXT:jwtools2): navy + amber */
+    --jw-brand-navy: #000842;
+    --jw-brand-navy-light: #1a2a7a;
+    --jw-brand-amber: #f6ae2d;
+
+    /* Accent: navy on light surfaces (17:1), periwinkle tint on dark surfaces (7.8:1) */
+    --jw-accent: light-dark(var(--jw-brand-navy), #a3acf0);
+    --jw-accent-surface: light-dark(#e6e8f2, #232a52);
+    --jw-highlight: var(--jw-brand-amber);
+    --jw-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --jw-duration: 0.6s;
+
+    /*
+     * Categorical slots in fixed order (validated: lightness band, chroma, CVD and normal-vision separation
+     * against the card surfaces #f4f4f5 / #1d1c21). Never re-order by value.
+     */
+    --jw-category-1: light-dark(#2a78d6, #3987e5);
+    --jw-category-2: light-dark(#eb6834, #d95926);
+    --jw-category-3: light-dark(#1baf7a, #199e70);
+    --jw-category-4: light-dark(#eda100, #c98500);
+    --jw-category-other: light-dark(#8c8b93, #6f6e76);
+
+    max-width: 1600px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Hero header
+ * ------------------------------------------------------------------------ */
+.jw-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    margin-bottom: calc(var(--jw-gap) * 1.5);
+    padding: 1.75rem 2rem;
+    border-radius: calc(var(--jw-radius) * 1.5);
+    background: linear-gradient(120deg, var(--jw-brand-navy) 0%, var(--jw-brand-navy) 45%, var(--jw-brand-navy-light) 100%);
+    box-shadow: var(--typo3-component-box-shadow);
+    color: #fff;
+    animation: jw-fade-in var(--jw-duration) var(--jw-ease-out) both;
+}
+
+.jw-hero__text {
+    position: relative;
+    z-index: 1;
+    max-width: 48rem;
+}
+
+.jw-hero__eyebrow {
+    display: flex;
+    gap: 0.375rem;
+    margin: 0 0 0.375rem;
+    color: var(--jw-brand-amber);
+    font-size: var(--typo3-font-size-small);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.jw-hero__title {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(1.375rem, 1rem + 1.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    animation: jw-rise var(--jw-duration) var(--jw-ease-out) 0.1s both;
+}
+
+.jw-hero__lead {
+    margin: 0.375rem 0 0;
+    color: rgb(255 255 255 / 78%);
+    animation: jw-rise var(--jw-duration) var(--jw-ease-out) 0.2s both;
+}
+
+.jw-hero__decoration {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.jw-hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--jw-brand-amber);
+    filter: blur(56px);
+    opacity: 0.28;
+    animation: jw-float 14s ease-in-out infinite alternate;
+}
+
+.jw-hero__orb--1 {
+    top: -40%;
+    right: 6%;
+    width: 16rem;
+    height: 16rem;
+}
+
+.jw-hero__orb--2 {
+    right: 26%;
+    bottom: -60%;
+    width: 12rem;
+    height: 12rem;
+    background: #4c63e6;
+    opacity: 0.45;
+    animation-duration: 18s;
+    animation-delay: -6s;
+}
+
+.jw-hero__orb--3 {
+    top: 10%;
+    right: -4%;
+    width: 9rem;
+    height: 9rem;
+    background: #fff;
+    opacity: 0.1;
+    animation-duration: 11s;
+    animation-delay: -3s;
+}
+
+/* Primary buttons in jweiland.net navy (dark mode: amber, which keeps 8.9:1 on the dark surface) */
+.jw-dashboard .btn-primary {
+    --typo3-btn-color: light-dark(#fff, var(--jw-brand-navy));
+    --typo3-btn-bg: light-dark(var(--jw-brand-navy), var(--jw-brand-amber));
+    --typo3-btn-border-color: light-dark(var(--jw-brand-navy), var(--jw-brand-amber));
+    --typo3-btn-hover-color: light-dark(#fff, var(--jw-brand-navy));
+    --typo3-btn-hover-bg: light-dark(var(--jw-brand-navy-light), #f8c060);
+    --typo3-btn-hover-border-color: light-dark(var(--jw-brand-navy-light), #f8c060);
+    --typo3-btn-focus-color: light-dark(#fff, var(--jw-brand-navy));
+    --typo3-btn-focus-bg: light-dark(var(--jw-brand-navy-light), #f8c060);
+    --typo3-btn-focus-border-color: light-dark(var(--jw-brand-amber), #fff);
+}
+
+/* ---------------------------------------------------------------------------
+ * Grid: 12 columns, widgets declare their span via jw-widget--{size}
+ * ------------------------------------------------------------------------ */
+.jw-dashboard__grid {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-flow: row dense;
+    gap: var(--jw-gap);
+}
+
+.jw-widget {
+    grid-column: span 12;
+    margin: 0;
+    animation: jw-rise var(--jw-duration) var(--jw-ease-out) both;
+    animation-delay: calc(0.15s + var(--jw-index, 0) * 60ms);
+    transition: box-shadow 0.25s ease, transform 0.25s var(--jw-ease-out), border-color 0.25s ease;
+}
+
+.jw-widget:hover {
+    border-color: color-mix(in srgb, var(--jw-border), var(--jw-highlight) 55%);
+    box-shadow: var(--typo3-component-box-shadow-strong, var(--typo3-component-box-shadow));
+    transform: translateY(-2px);
+}
+
+@container (min-width: 760px) {
+    .jw-widget--small,
+    .jw-widget--medium {
+        grid-column: span 6;
+    }
+}
+
+@container (min-width: 1140px) {
+    .jw-widget--small {
+        grid-column: span 4;
+    }
+
+    .jw-widget--large {
+        grid-column: span 8;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+ * Card
+ * ------------------------------------------------------------------------ */
+.jw-widget__header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: calc(var(--typo3-card-padding, 1rem) * 0.5);
+}
+
+.jw-widget__header .card-icon {
+    display: flex;
+    float: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    border-radius: var(--jw-radius);
+    background: var(--jw-accent-surface);
+    color: var(--jw-accent);
+    transition: transform 0.3s var(--jw-ease-out);
+}
+
+.jw-widget:hover .card-icon {
+    transform: scale(1.08) rotate(-4deg);
+}
+
+.jw-widget__header .card-header-body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.jw-widget__header .card-title {
+    margin: 0;
+}
+
+.jw-widget__refresh {
+    flex-shrink: 0;
+    margin-inline-start: auto;
+}
+
+.jw-widget__refresh.is-loading .t3js-icon,
+.jw-widget__refresh.is-loading typo3-backend-icon {
+    animation: jw-spin 0.8s linear infinite;
+}
+
+@keyframes jw-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.jw-widget__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--typo3-spacing, 1rem);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.jw-widget__body[aria-busy="true"]:not(:has(.jw-skeleton)) {
+    opacity: 0.5;
+}
+
+.jw-widget__body.is-updated > * {
+    animation: jw-fade-in 0.4s var(--jw-ease-out) both;
+}
+
+.jw-widget__body > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.jw-widget__intro {
+    color: var(--jw-muted);
+}
+
+.jw-widget__footer {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--jw-border);
+}
+
+.jw-label {
+    display: block;
+    margin: 0;
+    color: var(--jw-muted);
+    font-size: var(--typo3-font-size-small);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.jw-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--jw-accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.jw-link:hover,
+.jw-link:focus-visible {
+    text-decoration: underline;
+}
+
+.jw-callout {
+    margin: 0;
+}
+
+.jw-callout__link {
+    display: inline-block;
+    margin-top: 0.25rem;
+    color: inherit;
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------------
+ * TYPO3 version
+ * ------------------------------------------------------------------------ */
+.jw-version {
+    display: flex;
+    flex-direction: column;
+    gap: var(--typo3-spacing, 1rem);
+}
+
+.jw-version__numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 0;
+}
+
+.jw-version__item dd {
+    margin: 0;
+}
+
+.jw-version__number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.jw-version__number--muted {
+    color: var(--jw-muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * Site health metrics
+ * ------------------------------------------------------------------------ */
+.jw-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.jw-metric {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--jw-border);
+    border-radius: var(--jw-radius);
+    background: var(--jw-subtle-bg);
+}
+
+.jw-metric__label {
+    color: var(--jw-muted);
+    font-weight: 400;
+}
+
+.jw-metric__value {
+    margin: 0;
+    font-size: 1.625rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.jw-metric--danger {
+    border-color: var(--typo3-state-danger-border-color);
+    background: var(--typo3-surface-container-danger);
+}
+
+.jw-metric--danger .jw-metric__value {
+    color: var(--typo3-text-color-danger);
+}
+
+.jw-metric__na {
+    color: var(--jw-muted);
+    cursor: help;
+}
+
+/* ---------------------------------------------------------------------------
+ * News
+ * ------------------------------------------------------------------------ */
+.jw-news {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-news__item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--jw-border);
+}
+
+.jw-news__item:first-child {
+    padding-top: 0;
+}
+
+.jw-news__item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.jw-news__date {
+    display: flex;
+    flex: 0 0 3.75rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    padding: 0.375rem 0.25rem;
+    border-radius: var(--jw-radius);
+    background: var(--jw-accent-surface);
+    color: var(--jw-accent);
+    line-height: 1.1;
+    text-align: center;
+}
+
+.jw-news__day {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.jw-news__month {
+    font-size: var(--typo3-font-size-small);
+    text-transform: uppercase;
+}
+
+.jw-news__content {
+    min-width: 0;
+}
+
+.jw-news__title {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.jw-news__title:hover,
+.jw-news__title:focus-visible {
+    color: var(--jw-accent);
+    text-decoration: underline;
+}
+
+.jw-news__teaser {
+    margin: 0.25rem 0 0;
+    color: var(--jw-muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * Maintenance contracts
+ * ------------------------------------------------------------------------ */
+.jw-contracts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-contract {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--jw-border);
+}
+
+.jw-contract:first-child {
+    padding-top: 0;
+}
+
+.jw-contract:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.jw-contract__main {
+    display: flex;
+    flex: 1 1 14rem;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.jw-contract__title {
+    font-weight: 600;
+}
+
+.jw-contract__meta,
+.jw-contract__contacts,
+.jw-contract__date {
+    color: var(--jw-muted);
+}
+
+.jw-contract__contacts {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.jw-contract__person:not(:last-child)::after {
+    content: ",";
+}
+
+.jw-contract__status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+ * Empty state
+ * ------------------------------------------------------------------------ */
+.jw-empty {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px dashed var(--jw-border);
+    border-radius: var(--jw-radius);
+    text-align: center;
+}
+
+.jw-empty > * {
+    margin: 0;
+}
+
+.jw-empty__title {
+    font-weight: 600;
+}
+
+.jw-empty__text {
+    max-width: 32rem;
+    color: var(--jw-muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * Quick links
+ * ------------------------------------------------------------------------ */
+.jw-links__heading {
+    margin-bottom: -0.5rem;
+}
+
+.jw-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-links__link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 0.625rem;
+    border-radius: var(--jw-radius);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.jw-links__link:hover,
+.jw-links__link:focus-visible {
+    background: var(--typo3-component-hover-bg, var(--jw-subtle-bg));
+    color: inherit;
+    text-decoration: none;
+}
+
+.jw-links__label {
+    flex: 1 1 auto;
+}
+
+/* ---------------------------------------------------------------------------
+ * Extensions
+ * ------------------------------------------------------------------------ */
+.jw-extensions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-extension {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--jw-border);
+    border-radius: var(--jw-radius);
+    background: var(--jw-subtle-bg);
+}
+
+.jw-extension__key {
+    overflow: hidden;
+    font-family: var(--typo3-font-family-code);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jw-extension__version {
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Editor guide
+ * ------------------------------------------------------------------------ */
+.jw-guide__message > :first-child {
+    margin-top: 0;
+}
+
+.jw-guide__message > :last-child {
+    margin-bottom: 0;
+}
+
+.jw-person,
+.jw-agency {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--jw-border);
+    border-radius: var(--jw-radius);
+    background: var(--jw-subtle-bg);
+}
+
+.jw-person__photo {
+    flex: 0 0 3.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.jw-person__photo--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--jw-accent-surface);
+    color: var(--jw-accent);
+}
+
+.jw-agency__logo {
+    flex: 0 0 3.5rem;
+    height: 3.5rem;
+    overflow: hidden;
+    border-radius: var(--jw-radius);
+    background: var(--jw-brand-navy);
+}
+
+.jw-agency__logo img,
+.jw-agency__logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.jw-person__info,
+.jw-agency__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+}
+
+.jw-person__role {
+    color: var(--jw-muted);
+}
+
+.jw-contact-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    overflow-wrap: anywhere;
+    color: inherit;
+    text-decoration: none;
+}
+
+a.jw-contact-line:hover,
+a.jw-contact-line:focus-visible {
+    color: var(--jw-accent);
+    text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Skeleton (deferred widgets, first load only – refreshes keep the old content)
+ * ------------------------------------------------------------------------ */
+.jw-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.jw-skeleton__line {
+    display: block;
+    width: 100%;
+    height: 0.875rem;
+    border-radius: 999px;
+    background:
+        linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--typo3-surface-container-low), white 45%) 50%, transparent 100%)
+        0 0 / 200% 100% no-repeat,
+        var(--jw-subtle-bg);
+    animation: jw-shimmer 1.4s linear infinite;
+}
+
+.jw-skeleton__line--lg {
+    width: 45%;
+    height: 2rem;
+}
+
+.jw-skeleton__line--md {
+    width: 80%;
+}
+
+.jw-skeleton__line--sm {
+    width: 60%;
+}
+
+/* ---------------------------------------------------------------------------
+ * KPI tiles
+ * ------------------------------------------------------------------------ */
+.jw-kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.jw-kpi {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.125rem;
+}
+
+.jw-kpi__label {
+    color: var(--jw-muted);
+    font-weight: 400;
+}
+
+.jw-kpi__value {
+    margin: 0;
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+/* ---------------------------------------------------------------------------
+ * Column chart (single series, sequential accent hue)
+ * ------------------------------------------------------------------------ */
+.jw-chart {
+    margin: 0;
+}
+
+.jw-chart__caption {
+    margin-bottom: 0.75rem;
+    color: var(--jw-muted);
+}
+
+.jw-chart__plot {
+    position: relative;
+    height: 11rem;
+    margin-left: 2rem;
+}
+
+.jw-chart__grid {
+    position: absolute;
+    inset: 0;
+}
+
+.jw-chart__tick {
+    position: absolute;
+    right: 0;
+    bottom: calc(var(--jw-position) * 1%);
+    left: -2rem;
+    display: flex;
+    align-items: center;
+    color: var(--jw-muted);
+    font-size: var(--typo3-font-size-small);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    transform: translateY(50%);
+}
+
+.jw-chart__tick::before {
+    content: "";
+    order: 2;
+    flex: 1 1 auto;
+    border-top: 1px solid var(--jw-border);
+}
+
+.jw-chart__tick-label {
+    flex: 0 0 2rem;
+    padding-right: 0.5rem;
+    text-align: right;
+}
+
+.jw-chart__bars {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-chart__slot {
+    position: relative;
+    display: flex;
+    flex: 1 1 0;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    border-radius: 4px;
+    outline-offset: 2px;
+    cursor: default;
+}
+
+.jw-chart__slot:hover,
+.jw-chart__slot:focus-visible {
+    background: color-mix(in srgb, var(--jw-accent) 7%, transparent);
+}
+
+.jw-chart__bar {
+    display: block;
+    width: 100%;
+    max-width: 24px;
+    height: calc(var(--jw-value) * 1%);
+    min-height: 0;
+    border-radius: 4px 4px 0 0;
+    background: var(--jw-accent);
+    transform-origin: bottom;
+    animation: jw-grow-y 0.8s var(--jw-ease-out) both;
+    animation-delay: calc(0.35s + var(--jw-index, 0) * 35ms);
+}
+
+.jw-chart__slot--current .jw-chart__bar {
+    background: var(--jw-highlight);
+}
+
+.jw-chart__value {
+    position: absolute;
+    bottom: calc(var(--jw-value) * 1% + 0.25rem);
+    font-size: var(--typo3-font-size-small);
+    font-weight: 600;
+    animation: jw-fade-in 0.4s ease both;
+    animation-delay: calc(0.9s + var(--jw-index, 0) * 35ms);
+}
+
+/* Tooltip, readable without hover via the data table */
+.jw-chart__slot::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 2;
+    padding: 0.375rem 0.625rem;
+    border-radius: var(--jw-radius);
+    background: var(--typo3-text-color-base);
+    box-shadow: var(--typo3-component-box-shadow);
+    color: var(--typo3-surface-container-lowest);
+    font-size: var(--typo3-font-size-small);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 0.25rem);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.jw-chart__slot:first-child::after {
+    left: 0;
+    transform: translate(0, 0.25rem);
+}
+
+.jw-chart__slot:last-child::after {
+    right: 0;
+    left: auto;
+    transform: translate(0, 0.25rem);
+}
+
+.jw-chart__slot:hover::after,
+.jw-chart__slot:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.jw-chart__slot:first-child:hover::after,
+.jw-chart__slot:first-child:focus-visible::after,
+.jw-chart__slot:last-child:hover::after,
+.jw-chart__slot:last-child:focus-visible::after {
+    transform: translate(0, 0);
+}
+
+.jw-chart__axis {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0 0 2rem;
+    color: var(--jw-muted);
+    font-size: var(--typo3-font-size-small);
+}
+
+.jw-data-table summary {
+    color: var(--jw-accent);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.jw-data-table table {
+    margin: 0.75rem 0 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Figure + stacked bar + legend (storage)
+ * ------------------------------------------------------------------------ */
+.jw-figure {
+    display: flex;
+    flex-direction: column;
+}
+
+.jw-figure__value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.jw-figure__label {
+    color: var(--jw-muted);
+}
+
+.jw-stacked {
+    display: flex;
+    gap: 2px;
+    height: 0.875rem;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.jw-stacked__segment {
+    flex: var(--jw-value) 1 0;
+    min-width: 4px;
+    transform-origin: left;
+    animation: jw-grow-x 0.9s var(--jw-ease-out) both;
+    animation-delay: calc(0.35s + var(--jw-index, 0) * 90ms);
+}
+
+.jw-category--images {
+    background: var(--jw-category-1);
+}
+
+.jw-category--documents {
+    background: var(--jw-category-2);
+}
+
+.jw-category--videos {
+    background: var(--jw-category-3);
+}
+
+.jw-category--audio {
+    background: var(--jw-category-4);
+}
+
+.jw-category--other {
+    background: var(--jw-category-other);
+}
+
+.jw-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-legend__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0 0.625rem;
+}
+
+.jw-legend__swatch {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 3px;
+}
+
+.jw-legend__value {
+    font-weight: 600;
+    text-align: right;
+}
+
+.jw-legend__share,
+.jw-legend__count {
+    color: var(--jw-muted);
+    font-weight: 400;
+}
+
+.jw-legend__count {
+    grid-column: 2 / -1;
+}
+
+/* ---------------------------------------------------------------------------
+ * Support lifecycle timeline
+ * ------------------------------------------------------------------------ */
+.jw-lifecycle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--jw-border);
+}
+
+.jw-lifecycle__head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+}
+
+.jw-lifecycle__remaining {
+    font-weight: 600;
+}
+
+.jw-lifecycle__track {
+    position: relative;
+    display: flex;
+    gap: 2px;
+    height: 0.625rem;
+    margin: 0.25rem 0;
+}
+
+.jw-lifecycle__phase {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.jw-lifecycle__phase--regular {
+    flex: 0 0 calc(var(--jw-regular) * 1%);
+    background: var(--jw-accent-surface);
+}
+
+.jw-lifecycle__phase--elts {
+    flex: 1 1 auto;
+    background: var(--jw-subtle-bg);
+}
+
+.jw-lifecycle__elapsed {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: calc(var(--jw-value) * 1%);
+    border-radius: 4px 0 0 4px;
+    background: var(--jw-accent);
+    transform-origin: left;
+    animation: jw-grow-x 1.1s var(--jw-ease-out) 0.4s both;
+}
+
+.jw-lifecycle--elts .jw-lifecycle__elapsed {
+    background: var(--typo3-state-warning-bg);
+}
+
+.jw-lifecycle--unsupported .jw-lifecycle__elapsed {
+    background: var(--typo3-state-danger-bg);
+}
+
+.jw-lifecycle__today {
+    position: absolute;
+    top: 50%;
+    left: calc(var(--jw-value) * 1%);
+    width: 0.875rem;
+    height: 0.875rem;
+    border: 2px solid var(--typo3-surface-container-low);
+    border-radius: 50%;
+    background: var(--jw-highlight);
+    transform: translate(-50%, -50%);
+    animation: jw-pop 0.4s var(--jw-ease-out) 1.3s both, jw-pulse 2.4s ease-out 1.8s infinite;
+}
+
+.jw-lifecycle__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin: 0;
+    color: var(--jw-muted);
+}
+
+.jw-lifecycle__legend > div {
+    display: flex;
+    gap: 0.375rem;
+}
+
+.jw-lifecycle__legend dt {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 400;
+}
+
+.jw-lifecycle__legend dd {
+    margin: 0;
+    color: var(--typo3-text-color-base);
+    font-weight: 600;
+}
+
+.jw-lifecycle__key {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 3px;
+}
+
+.jw-lifecycle__key--regular {
+    background: var(--jw-accent);
+}
+
+.jw-lifecycle__key--elts {
+    border: 1px solid var(--jw-border);
+    background: var(--jw-subtle-bg);
+}
+
+/* ---------------------------------------------------------------------------
+ * Meter (contract term) – fill carries the severity, track is a lighter step
+ * ------------------------------------------------------------------------ */
+.jw-meter {
+    display: block;
+    height: 0.375rem;
+    margin-top: 0.375rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--jw-subtle-bg);
+}
+
+.jw-meter__fill {
+    display: block;
+    width: calc(var(--jw-value) * 1%);
+    height: 100%;
+    border-radius: inherit;
+    background: var(--typo3-state-success-bg);
+    transform-origin: left;
+    animation: jw-grow-x 1s var(--jw-ease-out) 0.4s both;
+}
+
+.jw-meter--warning .jw-meter__fill {
+    background: var(--typo3-state-warning-bg);
+}
+
+.jw-meter--danger .jw-meter__fill {
+    background: var(--typo3-state-danger-bg);
+}
+
+/* ---------------------------------------------------------------------------
+ * Timeline (recently changed)
+ * ------------------------------------------------------------------------ */
+.jw-timeline {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jw-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.875rem;
+    border-left: 1px solid var(--jw-border);
+}
+
+.jw-timeline__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.75rem 1fr auto;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 0;
+    animation: jw-slide-in 0.5s var(--jw-ease-out) both;
+    animation-delay: calc(0.3s + var(--jw-index, 0) * 50ms);
+}
+
+.jw-timeline__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px solid var(--jw-border);
+    border-radius: 50%;
+    background: var(--typo3-surface-container-low);
+}
+
+.jw-timeline__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.jw-timeline__title {
+    overflow: hidden;
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jw-timeline__title:hover,
+.jw-timeline__title:focus-visible {
+    color: var(--jw-accent);
+    text-decoration: underline;
+}
+
+.jw-timeline__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--jw-muted);
+}
+
+.jw-timeline__action {
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s var(--jw-ease-out);
+}
+
+.jw-timeline__item:hover .jw-timeline__action,
+.jw-timeline__action:focus-visible {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+/* ---------------------------------------------------------------------------
+ * Keyframes
+ * ------------------------------------------------------------------------ */
+@keyframes jw-rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+@keyframes jw-fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes jw-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+}
+
+@keyframes jw-grow-y {
+    from {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes jw-grow-x {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes jw-pop {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+@keyframes jw-pulse {
+    0% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--jw-highlight) 60%, transparent);
+    }
+
+    70%,
+    100% {
+        box-shadow: 0 0 0 0.5rem transparent;
+    }
+}
+
+@keyframes jw-float {
+    to {
+        transform: translate(-2.5rem, 1.5rem) scale(1.15);
+    }
+}
+
+@keyframes jw-shimmer {
+    from {
+        background-position: 150% 0, 0 0;
+    }
+
+    to {
+        background-position: -50% 0, 0 0;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion and print preferences
+ * ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+    .jw-dashboard *,
+    .jw-dashboard *::before,
+    .jw-dashboard *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .jw-widget:hover {
+        transform: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .jw-chart__bar,
+    .jw-stacked__segment,
+    .jw-lifecycle__elapsed,
+    .jw-meter__fill,
+    .jw-legend__swatch {
+        forced-color-adjust: none;
+        border: 1px solid CanvasText;
+    }
+}

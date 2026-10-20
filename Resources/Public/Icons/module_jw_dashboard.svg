@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <defs>
+        <style>.bg{fill:#000842;}.mark{fill:#fff;}.bars{fill:#f6ae2d;}</style>
+        <clipPath id="jw-dashboard-w">
+            <rect x="20" y="21" width="40" height="26"/>
+        </clipPath>
+    </defs>
+    <!-- jweiland.net navy, same tone as EXT:jwtools2 -->
+    <rect class="bg" width="64" height="64"/>
+    <!-- "j" of the jweiland.net favicon -->
+    <rect class="mark" x="13" y="11" width="6.5" height="6.5"/>
+    <path class="mark" d="M13,21H19.5V45C19.5,50.5,16.8,53,11.5,53H8V47.5h2.5c1.9,0,2.5-.9,2.5-2.9Z"/>
+    <!-- "w" -->
+    <polyline
+        clip-path="url(#jw-dashboard-w)"
+        points="25.2,14 32,41 39.5,22.5 47,41 53.8,14"
+        fill="none"
+        stroke="#fff"
+        stroke-width="6.5"
+        stroke-linejoin="miter"
+    />
+    <!-- Dashboard bars instead of "net" -->
+    <rect class="bars" x="31" y="53" width="6" height="4"/>
+    <rect class="bars" x="39" y="51" width="6" height="6"/>
+    <rect class="bars" x="47" y="49" width="6" height="8"/>
+</svg>
