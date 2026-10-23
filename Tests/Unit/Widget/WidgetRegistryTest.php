@@ -159,7 +159,7 @@ final class WidgetRegistryTest extends TestCase
 
             public function getData(): WidgetData
             {
-                if ($this->exception !== null) {
+                if ($this->exception instanceof \Throwable) {
                     throw $this->exception;
                 }
 

@@ -162,9 +162,9 @@ final class SupportWidgetTest extends TestCase
     public function disabledStatusWidgetsAreNotQueried(): void
     {
         $this->typo3VersionWidget->method('isEnabled')->willReturn(false);
-        $this->typo3VersionWidget->expects(self::never())->method('getData');
+        $this->typo3VersionWidget->expects($this->never())->method('getData');
         $this->maintenanceContractWidget->method('isEnabled')->willReturn(false);
-        $this->maintenanceContractWidget->expects(self::never())->method('getData');
+        $this->maintenanceContractWidget->expects($this->never())->method('getData');
 
         $viewData = $this->createSubject()->getViewData();
 
@@ -199,7 +199,7 @@ final class SupportWidgetTest extends TestCase
     #[Test]
     public function moduleLinkIsNullWithoutBackendUser(): void
     {
-        $this->moduleProvider->expects(self::never())->method('accessGranted');
+        $this->moduleProvider->expects($this->never())->method('accessGranted');
 
         self::assertNull($this->createSubject()->getViewData()['moduleLink']);
     }

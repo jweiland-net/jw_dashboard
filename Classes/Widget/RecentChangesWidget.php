@@ -17,6 +17,7 @@ use JWeiland\JwDashboard\Service\RecentChangesService;
 use Symfony\Component\DependencyInjection\Attribute\AsTaggedItem;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 
 /**
  * Timeline of the latest edited pages and content elements with direct edit links
@@ -63,7 +64,7 @@ class RecentChangesWidget extends AbstractWidget implements RefreshableWidgetInt
     public function getData(): WidgetData
     {
         $backendUser = $this->getBackendUser();
-        if ($backendUser === null) {
+        if (!$backendUser instanceof BackendUserAuthentication) {
             return WidgetData::unavailable($this->getIdentifier());
         }
 

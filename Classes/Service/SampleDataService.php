@@ -113,7 +113,7 @@ class SampleDataService
             $ids[(string)$placeholder] = (int)$id;
         }
 
-        return ['ids' => $ids, 'errors' => array_map('strval', $dataHandler->errorLog)];
+        return ['ids' => $ids, 'errors' => array_map(strval(...), $dataHandler->errorLog)];
     }
 
     /**
@@ -137,7 +137,7 @@ class SampleDataService
             $dataHandler = $this->createDataHandler();
             $dataHandler->start([], $cmdMap);
             $dataHandler->process_cmdmap();
-            $errors = array_map('strval', $dataHandler->errorLog);
+            $errors = array_map(strval(...), $dataHandler->errorLog);
         }
 
         return ['contracts' => count($contracts), 'persons' => count($persons), 'errors' => $errors];
@@ -207,7 +207,7 @@ class SampleDataService
             ->executeQuery()
             ->fetchFirstColumn();
 
-        return array_values(array_map('intval', array_filter($uids, 'is_numeric')));
+        return array_values(array_map(intval(...), array_filter($uids, is_numeric(...))));
     }
 
     /**

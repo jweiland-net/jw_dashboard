@@ -20,7 +20,7 @@ use TYPO3\CMS\Core\Http\RequestFactory;
  */
 class NewsService
 {
-    private FrontendInterface $cache;
+    private readonly FrontendInterface $cache;
 
     public function __construct(
         private readonly RequestFactory $requestFactory,

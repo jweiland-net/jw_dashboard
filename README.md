@@ -1,9 +1,6 @@
 # TYPO3 Extension `jw_dashboard`
 
 [![Packagist][packagist-logo-stable]][extension-packagist-url]
-[![Latest Stable Version][extension-build-shield]][extension-ter-url]
-[![Total Downloads][extension-downloads-badge]][extension-packagist-url]
-[![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
 [![TYPO3 14.3][TYPO3-shield]][TYPO3-14-url]
 
 ![Build Status](https://github.com/jweiland-net/jw_dashboard/actions/workflows/ci.yml/badge.svg)

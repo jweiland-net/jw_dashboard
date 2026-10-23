@@ -29,7 +29,7 @@ final class ExtensionConfigurationManager
 
     public function get(): DashboardExtConf
     {
-        if ($this->extConf !== null) {
+        if ($this->extConf instanceof DashboardExtConf) {
             return $this->extConf;
         }
 

@@ -24,8 +24,7 @@ final readonly class WidgetRegistry
      * @param iterable<WidgetInterface> $widgets
      */
     public function __construct(
-        #[AutowireIterator(WidgetInterface::TAG_NAME)]
-        private iterable $widgets,
+        #[AutowireIterator(WidgetInterface::TAG_NAME)] private iterable $widgets,
         private ExtensionConfigurationManager $extConfManager,
     ) {}
 

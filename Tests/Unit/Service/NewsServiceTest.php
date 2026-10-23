@@ -48,7 +48,7 @@ final class NewsServiceTest extends TestCase
         ];
 
         $this->cache->method('get')->willReturn($cachedItems);
-        $this->requestFactory->expects(self::never())->method('request');
+        $this->requestFactory->expects($this->never())->method('request');
 
         $result = $this->subject->getLatestNews('https://news.typo3.com/rss', 5, 3600, 10);
 
@@ -59,7 +59,7 @@ final class NewsServiceTest extends TestCase
     public function getLatestNewsReturnsEmptyArrayOnHttpErrorAndDoesNotCacheIt(): void
     {
         $this->cache->method('get')->willReturn(false);
-        $this->cache->expects(self::never())->method('set');
+        $this->cache->expects($this->never())->method('set');
 
         $this->requestFactory->method('request')->willThrowException(new \RuntimeException('Timeout'));
 
@@ -93,11 +93,11 @@ final class NewsServiceTest extends TestCase
         $this->cache->method('get')->willReturn(false);
         $this->cache->method('set');
 
-        $rss = '<?xml version="1.0"?><rss version="2.0"><channel>' .
-            '<item><title>A</title><link>http://a</link><description>a</description><pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate></item>' .
-            '<item><title>B</title><link>http://b</link><description>b</description><pubDate>Tue, 02 Jan 2024 00:00:00 GMT</pubDate></item>' .
-            '<item><title>C</title><link>http://c</link><description>c</description><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate></item>' .
-            '</channel></rss>';
+        $rss = '<?xml version="1.0"?><rss version="2.0"><channel>'
+            . '<item><title>A</title><link>http://a</link><description>a</description><pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate></item>'
+            . '<item><title>B</title><link>http://b</link><description>b</description><pubDate>Tue, 02 Jan 2024 00:00:00 GMT</pubDate></item>'
+            . '<item><title>C</title><link>http://c</link><description>c</description><pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate></item>'
+            . '</channel></rss>';
 
         $stream = $this->createMock(StreamInterface::class);
         $stream->method('__toString')->willReturn($rss);
@@ -118,12 +118,12 @@ final class NewsServiceTest extends TestCase
     public function getLatestNewsConvertsPubDateToTimestampAndStripsHtml(): void
     {
         $this->cache->method('get')->willReturn(false);
-        $this->cache->expects(self::once())->method('set');
+        $this->cache->expects($this->once())->method('set');
 
-        $rss = '<?xml version="1.0"?><rss version="2.0"><channel>' .
-            '<item><title> A </title><link>http://a</link><description><![CDATA[<p>Teaser</p>]]></description>' .
-            '<pubDate>Thu, 15 Oct 2026 07:00:00 +0200</pubDate></item>' .
-            '</channel></rss>';
+        $rss = '<?xml version="1.0"?><rss version="2.0"><channel>'
+            . '<item><title> A </title><link>http://a</link><description><![CDATA[<p>Teaser</p>]]></description>'
+            . '<pubDate>Thu, 15 Oct 2026 07:00:00 +0200</pubDate></item>'
+            . '</channel></rss>';
 
         $stream = $this->createMock(StreamInterface::class);
         $stream->method('__toString')->willReturn($rss);

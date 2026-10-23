@@ -169,10 +169,10 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function contractsThatNeedAttentionCreateWarningItemWithDetails(): void
     {
-        $status = $this->subject->build([], self::contracts([
-            self::contract('Hosting', ContractRenewalState::Expiring, 12),
-            self::contract('Support', ContractRenewalState::Expired, -3),
-            self::contract('Maintenance', ContractRenewalState::Active, 200),
+        $status = $this->subject->build([], $this->contracts([
+            $this->contract('Hosting', ContractRenewalState::Expiring, 12),
+            $this->contract('Support', ContractRenewalState::Expired, -3),
+            $this->contract('Maintenance', ContractRenewalState::Active, 200),
         ]));
 
         self::assertCount(1, $status->items);
@@ -194,8 +194,8 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function singleContractUsesSingularTitle(): void
     {
-        $item = $this->subject->build([], self::contracts([
-            self::contract('Hosting', ContractRenewalState::Expiring, 0),
+        $item = $this->subject->build([], $this->contracts([
+            $this->contract('Hosting', ContractRenewalState::Expiring, 0),
         ]))->items[0];
 
         self::assertSame(self::PREFIX . 'contracts.one', $item->title);
@@ -205,8 +205,8 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function contractEndingTomorrowUsesOwnLabel(): void
     {
-        $item = $this->subject->build([], self::contracts([
-            self::contract('Hosting', ContractRenewalState::Expiring, 1),
+        $item = $this->subject->build([], $this->contracts([
+            $this->contract('Hosting', ContractRenewalState::Expiring, 1),
         ]))->items[0];
 
         self::assertSame([['key' => self::PREFIX . 'contract.endsTomorrow', 'arguments' => ['Hosting']]], $item->details);
@@ -217,10 +217,10 @@ final class SupportStatusBuilderTest extends TestCase
     {
         $entries = [];
         for ($i = 1; $i <= SupportStatusBuilder::MAX_CONTRACT_DETAILS + 2; $i++) {
-            $entries[] = self::contract('Contract ' . $i, ContractRenewalState::Expired, -$i);
+            $entries[] = $this->contract('Contract ' . $i, ContractRenewalState::Expired, -$i);
         }
 
-        $details = $this->subject->build([], self::contracts($entries))->items[0]->details;
+        $details = $this->subject->build([], $this->contracts($entries))->items[0]->details;
 
         self::assertCount(SupportStatusBuilder::MAX_CONTRACT_DETAILS + 1, $details);
         self::assertSame(['key' => self::PREFIX . 'contract.more', 'arguments' => [2]], end($details));
@@ -231,7 +231,7 @@ final class SupportStatusBuilderTest extends TestCase
     {
         $item = $this->subject->build(
             [],
-            self::contracts([self::contract('Hosting', ContractRenewalState::Expiring, 5)], ['manageUrl' => '/typo3/module/records']),
+            $this->contracts([$this->contract('Hosting', ContractRenewalState::Expiring, 5)], ['manageUrl' => '/typo3/module/records']),
             'jw_dashboard',
         )->items[0];
 
@@ -246,7 +246,7 @@ final class SupportStatusBuilderTest extends TestCase
     {
         $item = $this->subject->build(
             [],
-            self::contracts([self::contract('Hosting', ContractRenewalState::Expiring, 5)]),
+            $this->contracts([$this->contract('Hosting', ContractRenewalState::Expiring, 5)]),
             'jw_dashboard',
         )->items[0];
 
@@ -258,7 +258,7 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function contractItemHasNoActionWithoutManageUrlAndModuleAccess(): void
     {
-        $item = $this->subject->build([], self::contracts([self::contract('Hosting', ContractRenewalState::Expiring, 5)]))->items[0];
+        $item = $this->subject->build([], $this->contracts([$this->contract('Hosting', ContractRenewalState::Expiring, 5)]))->items[0];
 
         self::assertFalse($item->hasAction());
     }
@@ -266,7 +266,7 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function missingContractsShowSignupPrompt(): void
     {
-        $item = $this->subject->build([], self::contracts([], [
+        $item = $this->subject->build([], $this->contracts([], [
             'showSignupPrompt' => true,
             'signupUrl' => 'https://jweiland.net/typo3-wartungsvertrag.html',
         ]))->items[0];
@@ -280,9 +280,9 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function activeContractsCreateFacts(): void
     {
-        $status = $this->subject->build([], self::contracts([
-            self::contract('Hosting', ContractRenewalState::Active, 100),
-            self::contract('Support', ContractRenewalState::Unlimited, null),
+        $status = $this->subject->build([], $this->contracts([
+            $this->contract('Hosting', ContractRenewalState::Active, 100),
+            $this->contract('Support', ContractRenewalState::Unlimited, null),
         ]));
 
         self::assertTrue($status->isAllGood());
@@ -292,7 +292,7 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function singleActiveContractUsesSingularFact(): void
     {
-        $status = $this->subject->build([], self::contracts([self::contract('Hosting', ContractRenewalState::Active, 100)]));
+        $status = $this->subject->build([], $this->contracts([$this->contract('Hosting', ContractRenewalState::Active, 100)]));
 
         self::assertSame([['key' => self::PREFIX . 'ok.contracts.one', 'arguments' => [1]]], $status->facts);
     }
@@ -300,7 +300,7 @@ final class SupportStatusBuilderTest extends TestCase
     #[Test]
     public function noContractsAndNoSignupPromptCreatesNothing(): void
     {
-        self::assertTrue($this->subject->build([], self::contracts([]))->isEmpty());
+        self::assertTrue($this->subject->build([], $this->contracts([]))->isEmpty());
     }
 
     #[Test]
@@ -308,7 +308,7 @@ final class SupportStatusBuilderTest extends TestCase
     {
         $status = $this->subject->build(
             self::version(),
-            self::contracts([self::contract('Hosting', ContractRenewalState::Expiring, 5)]),
+            $this->contracts([$this->contract('Hosting', ContractRenewalState::Expiring, 5)]),
         );
 
         self::assertCount(1, $status->items);
@@ -321,7 +321,7 @@ final class SupportStatusBuilderTest extends TestCase
     {
         $status = $this->subject->build(
             self::version(['isUpToDate' => false, 'isSecurityRelease' => true]),
-            self::contracts([self::contract('Hosting', ContractRenewalState::Expiring, 5)]),
+            $this->contracts([$this->contract('Hosting', ContractRenewalState::Expiring, 5)]),
         );
 
         self::assertSame(
@@ -360,7 +360,7 @@ final class SupportStatusBuilderTest extends TestCase
      * @param array<string, mixed> $overrides
      * @return array<string, mixed>
      */
-    private static function contracts(array $contracts, array $overrides = []): array
+    private function contracts(array $contracts, array $overrides = []): array
     {
         return array_replace([
             'contracts' => $contracts,
@@ -374,7 +374,7 @@ final class SupportStatusBuilderTest extends TestCase
     /**
      * @return array<string, mixed>
      */
-    private static function contract(string $title, ContractRenewalState $state, ?int $daysRemaining): array
+    private function contract(string $title, ContractRenewalState $state, ?int $daysRemaining): array
     {
         $contract = new MaintenanceContract();
         $contract->setTitle($title);

@@ -51,7 +51,7 @@ final class SupportContactTest extends TestCase
     #[Test]
     public function contactPersonIsUsedWithAgencyAsHotline(): void
     {
-        $subject = SupportContact::fromAgencyPayload(self::AGENCY + ['mainContact' => self::person()]);
+        $subject = SupportContact::fromAgencyPayload(self::AGENCY + ['mainContact' => $this->person()]);
 
         self::assertTrue($subject->isPerson);
         self::assertSame('Anna Becker', $subject->name);
@@ -70,7 +70,7 @@ final class SupportContactTest extends TestCase
     #[Test]
     public function contactPersonWithoutPhoneFallsBackToMobileThenAgency(): void
     {
-        $person = self::person();
+        $person = $this->person();
         $person->setPhone('');
         $person->setMobile('+49 170 1234567');
 
@@ -86,7 +86,7 @@ final class SupportContactTest extends TestCase
     #[Test]
     public function hotlineIsOmittedIfIdenticalToDirectContact(): void
     {
-        $person = self::person();
+        $person = $this->person();
         $person->setPhone('+49 711 94969-60');
         $person->setEmail('PROJECTS@jweiland.net');
 
@@ -121,7 +121,7 @@ final class SupportContactTest extends TestCase
         self::assertSame('+497119496960', SupportContact::toPhoneUri('+49 711 / 94969-60'));
     }
 
-    private static function person(): ContactPerson
+    private function person(): ContactPerson
     {
         $person = new ContactPerson();
         $person->setName('Anna Becker');
