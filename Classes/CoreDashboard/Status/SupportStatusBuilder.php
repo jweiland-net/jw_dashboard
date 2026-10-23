@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\JwDashboard\CoreDashboard\Status;
 
+use JWeiland\JwDashboard\CoreDashboard\Payload;
 use JWeiland\JwDashboard\Domain\Model\ContractRenewalState;
 use JWeiland\JwDashboard\Domain\Model\MaintenanceContract;
 use JWeiland\JwDashboard\Domain\Model\SupportLifecycle;
@@ -78,9 +79,9 @@ final readonly class SupportStatusBuilder
             );
         }
 
-        $installed = (string)($version['installed'] ?? '');
-        $latest = (string)($version['latest'] ?? '');
-        $releaseUrl = (string)($version['releaseUrl'] ?? '');
+        $installed = Payload::string($version, 'installed');
+        $latest = Payload::string($version, 'latest');
+        $releaseUrl = Payload::string($version, 'releaseUrl');
         $lifecycle = is_array($version['lifecycle'] ?? null) ? $version['lifecycle'] : [];
 
         if (($lifecycle['phase'] ?? '') === SupportLifecycle::PHASE_UNSUPPORTED) {
@@ -89,7 +90,7 @@ final readonly class SupportStatusBuilder
                 severity: StatusSeverity::Danger,
                 icon: 'actions-exclamation-circle',
                 title: self::LABEL_PREFIX . 'unsupported',
-                titleArguments: [(int)($version['majorVersion'] ?? (int)$installed)],
+                titleArguments: [Payload::int($version, 'majorVersion', (int)$installed)],
                 body: self::LABEL_PREFIX . 'unsupported.body',
                 actionUrl: $releaseUrl,
                 actionLabel: self::LABEL_PREFIX . 'releaseInfo',
@@ -135,20 +136,22 @@ final readonly class SupportStatusBuilder
     private function buildVersionFacts(array $version): array
     {
         $facts = [
-            ['key' => self::LABEL_PREFIX . 'ok.version', 'arguments' => [(string)($version['installed'] ?? '')]],
+            ['key' => self::LABEL_PREFIX . 'ok.version', 'arguments' => [Payload::string($version, 'installed')]],
         ];
 
         $lifecycle = is_array($version['lifecycle'] ?? null) ? $version['lifecycle'] : [];
         $phase = $lifecycle['phase'] ?? '';
-        if ($phase === SupportLifecycle::PHASE_REGULAR && (int)($lifecycle['maintainedUntil'] ?? 0) > 0) {
+        $maintainedUntil = Payload::int($lifecycle, 'maintainedUntil');
+        $eltsUntil = Payload::int($lifecycle, 'eltsUntil');
+        if ($phase === SupportLifecycle::PHASE_REGULAR && $maintainedUntil > 0) {
             $facts[] = [
                 'key' => self::LABEL_PREFIX . 'ok.supportUntil',
-                'arguments' => [date(self::DATE_FORMAT, (int)$lifecycle['maintainedUntil'])],
+                'arguments' => [date(self::DATE_FORMAT, $maintainedUntil)],
             ];
-        } elseif ($phase === SupportLifecycle::PHASE_ELTS && (int)($lifecycle['eltsUntil'] ?? 0) > 0) {
+        } elseif ($phase === SupportLifecycle::PHASE_ELTS && $eltsUntil > 0) {
             $facts[] = [
                 'key' => self::LABEL_PREFIX . 'ok.eltsUntil',
-                'arguments' => [date(self::DATE_FORMAT, (int)$lifecycle['eltsUntil'])],
+                'arguments' => [date(self::DATE_FORMAT, $eltsUntil)],
             ];
         }
 
@@ -161,14 +164,17 @@ final readonly class SupportStatusBuilder
     private function buildContractItem(array $contracts, string $fallbackModule): ?StatusItem
     {
         $attention = array_values(array_filter(
-            is_array($contracts['contracts'] ?? null) ? $contracts['contracts'] : [],
-            static fn(mixed $entry): bool => is_array($entry)
-                && in_array($entry['state'] ?? '', [ContractRenewalState::Expiring->value, ContractRenewalState::Expired->value], true),
+            Payload::listOfArrays($contracts, 'contracts'),
+            static fn(array $entry): bool => in_array(
+                $entry['state'] ?? '',
+                [ContractRenewalState::Expiring->value, ContractRenewalState::Expired->value],
+                true,
+            ),
         ));
 
         if ($attention !== []) {
             $count = count($attention);
-            $manageUrl = (string)($contracts['manageUrl'] ?? '');
+            $manageUrl = Payload::string($contracts, 'manageUrl');
 
             return new StatusItem(
                 identifier: 'maintenanceContract',
@@ -190,7 +196,7 @@ final readonly class SupportStatusBuilder
                 icon: 'actions-certificate',
                 title: 'widget.maintenanceContract.noContract',
                 body: 'widget.maintenanceContract.signupPrompt',
-                actionUrl: (string)($contracts['signupUrl'] ?? ''),
+                actionUrl: Payload::string($contracts, 'signupUrl'),
                 actionLabel: 'widget.maintenanceContract.signupLink',
                 actionExternal: true,
             );
@@ -241,7 +247,7 @@ final readonly class SupportStatusBuilder
      */
     private function buildContractFacts(array $contracts): array
     {
-        $count = count(is_array($contracts['contracts'] ?? null) ? $contracts['contracts'] : []);
+        $count = count(Payload::listOfArrays($contracts, 'contracts'));
         if ($count === 0) {
             return [];
         }

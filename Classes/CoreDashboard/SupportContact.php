@@ -37,14 +37,14 @@ final readonly class SupportContact
      */
     public static function fromAgencyPayload(array $agency): self
     {
-        $agencyPhone = trim((string)($agency['agencyPhone'] ?? ''));
-        $agencyEmail = trim((string)($agency['agencyEmail'] ?? ''));
+        $agencyPhone = trim(Payload::string($agency, 'agencyPhone'));
+        $agencyEmail = trim(Payload::string($agency, 'agencyEmail'));
         $contact = $agency['mainContact'] ?? null;
 
         if (!$contact instanceof ContactPerson || trim($contact->getName()) === '') {
             return new self(
                 isPerson: false,
-                name: trim((string)($agency['agencyName'] ?? '')),
+                name: trim(Payload::string($agency, 'agencyName')),
                 role: '',
                 initials: '',
                 photo: null,

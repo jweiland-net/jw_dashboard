@@ -22,6 +22,7 @@ use TYPO3\CMS\Backend\Module\ModuleProvider;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\View\BackendViewFactory;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Core\Settings\SettingDefinition;
 use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetContext;
@@ -61,11 +62,17 @@ final readonly class SupportWidget implements WidgetRendererInterface, Additiona
         private UriBuilder $uriBuilder,
     ) {}
 
+    /**
+     * @return list<SettingDefinition>
+     */
     public function getSettingsDefinitions(): array
     {
         return [];
     }
 
+    /**
+     * @return list<string>
+     */
     public function getCssFiles(): array
     {
         return ['EXT:jw_dashboard/Resources/Public/Css/core-widget.css'];
@@ -132,22 +139,23 @@ final readonly class SupportWidget implements WidgetRendererInterface, Additiona
      */
     private function getToolLinks(array $quickLinks): array
     {
-        $customLinks = is_array($quickLinks['customLinks'] ?? null) ? $quickLinks['customLinks'] : [];
+        $customLinks = Payload::listOfArrays($quickLinks, 'customLinks');
         if ($customLinks !== []) {
-            return array_slice(array_values($customLinks), 0, self::MAX_TOOL_LINKS);
+            return array_slice($customLinks, 0, self::MAX_TOOL_LINKS);
         }
 
         $moduleLinks = [];
-        foreach (is_array($quickLinks['moduleLinks'] ?? null) ? $quickLinks['moduleLinks'] : [] as $link) {
-            if (!is_array($link) || ($link['url'] ?? '') === '') {
+        foreach (Payload::listOfArrays($quickLinks, 'moduleLinks') as $link) {
+            $url = Payload::string($link, 'url');
+            if ($url === '') {
                 continue;
             }
             $moduleLinks[] = [
-                'label' => (string)($link['label'] ?? ''),
-                'url' => (string)$link['url'],
-                'icon' => (string)($link['icon'] ?? 'actions-link'),
+                'label' => Payload::string($link, 'label'),
+                'url' => $url,
+                'icon' => Payload::string($link, 'icon', 'actions-link'),
                 'external' => false,
-                'module' => (string)($link['identifier'] ?? ''),
+                'module' => Payload::string($link, 'identifier'),
             ];
         }
 
