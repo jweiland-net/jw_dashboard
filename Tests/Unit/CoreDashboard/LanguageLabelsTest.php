@@ -45,19 +45,19 @@ final class LanguageLabelsTest extends TestCase
     #[DataProvider('usedLabelKeyDataProvider')]
     public function usedLabelExistsInEnglishAndGerman(string $key): void
     {
-        self::assertArrayHasKey($key, self::readLabels(self::LABEL_FILE), 'Missing in ' . self::LABEL_FILE);
-        self::assertArrayHasKey($key, self::readLabels(self::GERMAN_LABEL_FILE), 'Missing in ' . self::GERMAN_LABEL_FILE);
+        self::assertArrayHasKey($key, $this->readLabels(self::LABEL_FILE), 'Missing in ' . self::LABEL_FILE);
+        self::assertArrayHasKey($key, $this->readLabels(self::GERMAN_LABEL_FILE), 'Missing in ' . self::GERMAN_LABEL_FILE);
     }
 
     #[Test]
     public function everyCoreWidgetLabelIsTranslatedToGerman(): void
     {
         $english = array_filter(
-            self::readLabels(self::LABEL_FILE),
+            $this->readLabels(self::LABEL_FILE),
             static fn(string $key): bool => str_starts_with($key, 'coreWidget.'),
             ARRAY_FILTER_USE_KEY,
         );
-        $german = self::readLabels(self::GERMAN_LABEL_FILE);
+        $german = $this->readLabels(self::GERMAN_LABEL_FILE);
 
         foreach ($english as $key => $source) {
             self::assertArrayHasKey($key, $german, 'Missing German label ' . $key);
@@ -68,19 +68,19 @@ final class LanguageLabelsTest extends TestCase
     #[Test]
     public function placeholdersOfGermanLabelsMatchEnglishSource(): void
     {
-        $english = self::readLabels(self::LABEL_FILE);
-        foreach (self::readLabels(self::GERMAN_LABEL_FILE) as $key => $target) {
+        $english = $this->readLabels(self::LABEL_FILE);
+        foreach ($this->readLabels(self::GERMAN_LABEL_FILE) as $key => $target) {
             if (!str_starts_with($key, 'coreWidget.') || !isset($english[$key])) {
                 continue;
             }
-            self::assertSame(self::getPlaceholders($english[$key]), self::getPlaceholders($target), 'Placeholders differ in ' . $key);
+            self::assertSame($this->getPlaceholders($english[$key]), $this->getPlaceholders($target), 'Placeholders differ in ' . $key);
         }
     }
 
     /**
      * @return array<string, string> label key => target (German file) or source (English file)
      */
-    private static function readLabels(string $file): array
+    private function readLabels(string $file): array
     {
         $xml = simplexml_load_file(self::EXTENSION_PATH . $file);
         self::assertNotFalse($xml, 'Unable to parse ' . $file);
@@ -134,7 +134,7 @@ final class LanguageLabelsTest extends TestCase
     /**
      * @return list<string>
      */
-    private static function getPlaceholders(string $label): array
+    private function getPlaceholders(string $label): array
     {
         preg_match_all('/%(?:\d+\$)?[sd]/', $label, $matches);
         sort($matches[0]);

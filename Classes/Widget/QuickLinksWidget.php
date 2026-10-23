@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\JwDashboard\Widget;
 
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Backend\Module\ModuleInterface;
 use JWeiland\JwDashboard\Configuration\DashboardExtConf;
 use JWeiland\JwDashboard\Configuration\ExtensionConfigurationManager;
 use Symfony\Component\DependencyInjection\Attribute\AsTaggedItem;
@@ -108,14 +110,14 @@ class QuickLinksWidget extends AbstractWidget
     private function getModuleLinks(): array
     {
         $backendUser = $this->getBackendUser();
-        if ($backendUser === null) {
+        if (!$backendUser instanceof BackendUserAuthentication) {
             return [];
         }
 
         $links = [];
         foreach (self::BACKEND_MODULES as $identifier) {
             $module = $this->moduleProvider->getModule($identifier, $backendUser);
-            if ($module === null) {
+            if (!$module instanceof ModuleInterface) {
                 continue;
             }
 

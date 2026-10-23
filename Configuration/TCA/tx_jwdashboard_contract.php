@@ -54,9 +54,6 @@ return (static function (): array {
                 'config' => [
                     'type' => 'check',
                     'renderType' => 'checkboxToggle',
-                    'items' => [
-                        ['label' => '', 'value' => 1],
-                    ],
                 ],
             ],
             'title' => [

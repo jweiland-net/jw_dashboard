@@ -29,7 +29,7 @@ class Typo3VersionService
      */
     private const CACHE_VERSION = 2;
 
-    private FrontendInterface $cache;
+    private readonly FrontendInterface $cache;
 
     public function __construct(
         private readonly RequestFactory $requestFactory,

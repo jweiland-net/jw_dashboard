@@ -96,7 +96,7 @@ final class Typo3VersionServiceTest extends TestCase
             $requestedUrls,
         );
         self::assertNotNull($result['lifecycle']);
-        self::assertSame((int)strtotime('2029-06-30T00:00:00+02:00'), $result['lifecycle']->maintainedUntil);
+        self::assertSame(strtotime('2029-06-30T00:00:00+02:00'), $result['lifecycle']->maintainedUntil);
     }
 
     #[Test]

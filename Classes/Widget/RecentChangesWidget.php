@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\JwDashboard\Widget;
 
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use JWeiland\JwDashboard\Configuration\DashboardExtConf;
 use JWeiland\JwDashboard\Configuration\ExtensionConfigurationManager;
 use JWeiland\JwDashboard\Service\RecentChangesService;
@@ -63,7 +64,7 @@ class RecentChangesWidget extends AbstractWidget implements RefreshableWidgetInt
     public function getData(): WidgetData
     {
         $backendUser = $this->getBackendUser();
-        if ($backendUser === null) {
+        if (!$backendUser instanceof BackendUserAuthentication) {
             return WidgetData::unavailable($this->getIdentifier());
         }
 
