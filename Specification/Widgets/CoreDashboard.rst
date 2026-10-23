@@ -37,6 +37,8 @@ Contact card               Primary contact person, falling back to the      no
 Agency card                :ref:`widget-editor-guide` (agency settings,     no
                            :confval:`welcomeMessage`, logo) and
                            :confval:`customQuickLinks` as "Help & tools"
+                           (max. 6; without custom links: the backend
+                           modules of :ref:`widget-quick-links`)
 Footer                     Legal settings (imprint, privacy, terms,         no
                            newsletter) and the module button
 =========================  ===============================================  =========================

@@ -157,6 +157,21 @@ final class SupportWidgetTest extends FunctionalTestCase
     }
 
     #[Test]
+    public function helpAndToolsShowBackendModulesWithoutCustomQuickLinks(): void
+    {
+        $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['jw_dashboard']['customQuickLinks'] = '';
+
+        $html = $this->renderWidget(1);
+
+        self::assertStringContainsString('Help &amp; tools', $html);
+        self::assertMatchesRegularExpression(
+            '/class="jw-support__tile"\s+data-dispatch-action="TYPO3\.ModuleMenu\.showModule"\s+data-dispatch-args-list="web_layout"/',
+            $html,
+        );
+        self::assertStringNotContainsString('LLL:', $html, 'Module titles are translated');
+    }
+
+    #[Test]
     public function contractsThatNeedAttentionAreListedInTheStatusStrip(): void
     {
         $this->insertContract('Hosting', '+12 days');

@@ -117,6 +117,48 @@ final class SupportWidgetTest extends TestCase
     }
 
     #[Test]
+    public function helpAndToolsFallBackToBackendModulesWithoutCustomLinks(): void
+    {
+        $this->mockPayload($this->quickLinksWidget, [
+            'customLinks' => [],
+            'moduleLinks' => [
+                ['label' => 'LLL:EXT:backend/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab', 'url' => '/typo3/module/web/layout', 'icon' => 'module-page', 'identifier' => 'web_layout'],
+                ['label' => 'Broken', 'url' => '', 'icon' => 'module-list', 'identifier' => 'records'],
+            ],
+        ]);
+
+        self::assertSame(
+            [[
+                'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang_mod.xlf:mlang_tabs_tab',
+                'url' => '/typo3/module/web/layout',
+                'icon' => 'module-page',
+                'external' => false,
+                'module' => 'web_layout',
+            ]],
+            $this->createSubject()->getViewData()['quickLinks'],
+        );
+    }
+
+    #[Test]
+    public function customLinksWinOverBackendModulesAndAreLimited(): void
+    {
+        $customLinks = [];
+        for ($i = 1; $i <= SupportWidget::MAX_TOOL_LINKS + 2; $i++) {
+            $customLinks[] = ['label' => 'Link ' . $i, 'url' => 'https://example.org/' . $i, 'icon' => 'actions-link', 'external' => true];
+        }
+        $this->mockPayload($this->quickLinksWidget, [
+            'customLinks' => $customLinks,
+            'moduleLinks' => [['label' => 'Page', 'url' => '/typo3/module/web/layout', 'icon' => 'module-page', 'identifier' => 'web_layout']],
+        ]);
+
+        $toolLinks = $this->createSubject()->getViewData()['quickLinks'];
+
+        self::assertCount(SupportWidget::MAX_TOOL_LINKS, $toolLinks);
+        self::assertSame('Link 1', $toolLinks[0]['label']);
+        self::assertSame([], array_filter(array_column($toolLinks, 'module')));
+    }
+
+    #[Test]
     public function disabledStatusWidgetsAreNotQueried(): void
     {
         $this->typo3VersionWidget->method('isEnabled')->willReturn(false);

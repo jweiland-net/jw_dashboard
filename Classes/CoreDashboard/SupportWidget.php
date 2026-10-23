@@ -44,6 +44,11 @@ final readonly class SupportWidget implements WidgetRendererInterface, Additiona
 
     public const TEMPLATE = 'CoreWidget/Support';
 
+    /**
+     * Maximum number of tiles in "Help & tools"
+     */
+    public const MAX_TOOL_LINKS = 6;
+
     public function __construct(
         private WidgetConfigurationInterface $configuration,
         private BackendViewFactory $backendViewFactory,
@@ -94,7 +99,7 @@ final readonly class SupportWidget implements WidgetRendererInterface, Additiona
             ),
             'contact' => SupportContact::fromAgencyPayload($agency),
             'agency' => $agency,
-            'quickLinks' => $this->getPayload($this->quickLinksWidget, true)['customLinks'] ?? [],
+            'quickLinks' => $this->getToolLinks($this->getPayload($this->quickLinksWidget, true)),
             'legal' => $this->getLegalInformation(),
             'moduleLink' => $moduleLink,
         ];
@@ -115,6 +120,38 @@ final readonly class SupportWidget implements WidgetRendererInterface, Additiona
         $data = $widget->getSafeData();
 
         return $data->available && is_array($data->payload) ? $data->payload : [];
+    }
+
+    /**
+     * Tiles of "Help & tools": the configured custom quick links (agency help pages, upload or
+     * credential services, ...). Without custom links, the backend modules of the Quick Links
+     * widget the user has access to are offered instead, so the section is never empty.
+     *
+     * @param array<string, mixed> $quickLinks Payload of the QuickLinksWidget
+     * @return list<array<string, mixed>>
+     */
+    private function getToolLinks(array $quickLinks): array
+    {
+        $customLinks = is_array($quickLinks['customLinks'] ?? null) ? $quickLinks['customLinks'] : [];
+        if ($customLinks !== []) {
+            return array_slice(array_values($customLinks), 0, self::MAX_TOOL_LINKS);
+        }
+
+        $moduleLinks = [];
+        foreach (is_array($quickLinks['moduleLinks'] ?? null) ? $quickLinks['moduleLinks'] : [] as $link) {
+            if (!is_array($link) || ($link['url'] ?? '') === '') {
+                continue;
+            }
+            $moduleLinks[] = [
+                'label' => (string)($link['label'] ?? ''),
+                'url' => (string)$link['url'],
+                'icon' => (string)($link['icon'] ?? 'actions-link'),
+                'external' => false,
+                'module' => (string)($link['identifier'] ?? ''),
+            ];
+        }
+
+        return array_slice($moduleLinks, 0, self::MAX_TOOL_LINKS);
     }
 
     /**

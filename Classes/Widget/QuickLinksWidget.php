@@ -103,7 +103,7 @@ class QuickLinksWidget extends AbstractWidget
     }
 
     /**
-     * @return list<array{label: string, url: string, icon: string}>
+     * @return list<array{label: string, url: string, icon: string, identifier: string}>
      */
     private function getModuleLinks(): array
     {
@@ -123,6 +123,7 @@ class QuickLinksWidget extends AbstractWidget
                 'label' => $module->getTitle(),
                 'url' => (string)$this->uriBuilder->buildUriFromRoute($module->getIdentifier()),
                 'icon' => $module->getIconIdentifier(),
+                'identifier' => $module->getIdentifier(),
             ];
         }
 
