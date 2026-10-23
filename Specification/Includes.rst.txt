@@ -1,4 +1,0 @@
-..  This file is included at the top of every documentation page.
-
-..  role:: php(code)
-    :language: php
