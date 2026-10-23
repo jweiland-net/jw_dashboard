@@ -30,10 +30,6 @@ Run the following command within your Composer based TYPO3 project:
 composer require jweiland/jw-dashboard
 ```
 
-#### Installation as extension from TYPO3 Extension Repository (TER)
-
-Download and install `jw_dashboard` with the extension manager module.
-
 ### 2.2 Minimal setup
 
 1) Update the database schema.
