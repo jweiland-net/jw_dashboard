@@ -25,7 +25,6 @@ return (static function (): array {
             'enablecolumns' => [
                 'disabled' => 'hidden',
             ],
-            'searchFields' => 'title,client_name,client_number',
             'iconfile' => 'EXT:jw_dashboard/Resources/Public/Icons/module_jw_dashboard.svg',
             // Global records: stored on root level (admins) or in any sysfolder/page
             'rootLevel' => -1,
@@ -92,6 +91,8 @@ return (static function (): array {
             'start_date' => [
                 'label' => $languageFile . ':tx_jwdashboard_contract.start_date',
                 'config' => [
+                    // Not part of the backend search (formerly excluded via ctrl.searchFields)
+                    'searchable' => false,
                     'type' => 'datetime',
                     'format' => 'date',
                 ],
@@ -99,6 +100,8 @@ return (static function (): array {
             'end_date' => [
                 'label' => $languageFile . ':tx_jwdashboard_contract.end_date',
                 'config' => [
+                    // Not part of the backend search (formerly excluded via ctrl.searchFields)
+                    'searchable' => false,
                     'type' => 'datetime',
                     'format' => 'date',
                 ],
@@ -143,6 +146,8 @@ return (static function (): array {
             'notes' => [
                 'label' => $languageFile . ':tx_jwdashboard_contract.notes',
                 'config' => [
+                    // Not part of the backend search (formerly excluded via ctrl.searchFields)
+                    'searchable' => false,
                     'type' => 'text',
                     'cols' => 60,
                     'rows' => 5,

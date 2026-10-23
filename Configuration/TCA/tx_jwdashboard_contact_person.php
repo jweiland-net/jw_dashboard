@@ -23,7 +23,6 @@ return (static function (): array {
             'enablecolumns' => [
                 'disabled' => 'hidden',
             ],
-            'searchFields' => 'name,email,role',
             'iconfile' => 'EXT:jw_dashboard/Resources/Public/Icons/module_jw_dashboard.svg',
             // Global records: stored on root level (admins) or in any sysfolder/page
             'rootLevel' => -1,
@@ -78,6 +77,8 @@ return (static function (): array {
             'phone' => [
                 'label' => $languageFile . ':tx_jwdashboard_contact_person.phone',
                 'config' => [
+                    // Not part of the backend search (formerly excluded via ctrl.searchFields)
+                    'searchable' => false,
                     'type' => 'input',
                     'size' => 30,
                     'max' => 100,
@@ -87,6 +88,8 @@ return (static function (): array {
             'mobile' => [
                 'label' => $languageFile . ':tx_jwdashboard_contact_person.mobile',
                 'config' => [
+                    // Not part of the backend search (formerly excluded via ctrl.searchFields)
+                    'searchable' => false,
                     'type' => 'input',
                     'size' => 30,
                     'max' => 100,
@@ -136,6 +139,8 @@ return (static function (): array {
             'bio' => [
                 'label' => $languageFile . ':tx_jwdashboard_contact_person.bio',
                 'config' => [
+                    // Not part of the backend search (formerly excluded via ctrl.searchFields)
+                    'searchable' => false,
                     'type' => 'text',
                     'cols' => 60,
                     'rows' => 5,
