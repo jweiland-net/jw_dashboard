@@ -1,0 +1,98 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:comment>Arguments: contact (SupportContact)</f:comment>
+<section class="jw-support__card jw-support__contact" aria-labelledby="jw-support-contact-title">
+    <h3 class="jw-support__label" id="jw-support-contact-title">
+        <f:if condition="{contact.isPerson}">
+            <f:then><f:translate key="jw_dashboard.messages:widget.editorGuide.yourContact" /></f:then>
+            <f:else><f:translate key="jw_dashboard.messages:coreWidget.support.contact.team" /></f:else>
+        </f:if>
+    </h3>
+
+    <div class="jw-support__person">
+        <f:if condition="{contact.isPerson}">
+            <f:then>
+                <f:if condition="{contact.photo}">
+                    <f:then>
+                        <f:image image="{contact.photo}" width="112c" height="112c" class="jw-support__avatar" alt="" />
+                    </f:then>
+                    <f:else>
+                        <span class="jw-support__avatar jw-support__avatar--initials" aria-hidden="true">{contact.initials}</span>
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <span class="jw-support__avatar jw-support__avatar--team" aria-hidden="true"><core:icon identifier="ext-jw-dashboard" size="medium" /></span>
+            </f:else>
+        </f:if>
+        <div class="jw-support__person-text">
+            <strong class="jw-support__person-name">
+                <f:if condition="{contact.isPerson}">
+                    <f:then>{contact.name}</f:then>
+                    <f:else><f:translate key="jw_dashboard.messages:coreWidget.support.contact.teamName" arguments="{0: contact.name}" /></f:else>
+                </f:if>
+            </strong>
+            <f:if condition="{contact.role}">
+                <span class="jw-support__muted">{contact.role}</span>
+            </f:if>
+        </div>
+    </div>
+
+    <f:if condition="{contact.phone} || {contact.email}">
+        <div class="jw-support__actions">
+            <f:if condition="{contact.phone}">
+                <a href="tel:{contact.phoneUri}" class="jw-support__button jw-support__button--primary">
+                    <core:icon identifier="actions-phone" size="small" />
+                    <f:translate key="jw_dashboard.messages:coreWidget.support.contact.call" />
+                </a>
+            </f:if>
+            <f:if condition="{contact.email}">
+                <a href="mailto:{contact.email}" class="jw-support__button jw-support__button--secondary">
+                    <core:icon identifier="actions-envelope" size="small" />
+                    <f:translate key="jw_dashboard.messages:coreWidget.support.contact.write" />
+                </a>
+            </f:if>
+        </div>
+
+        <dl class="jw-support__lines">
+            <f:if condition="{contact.isPerson}">
+                <f:then>
+                    <div>
+                        <dt><f:translate key="jw_dashboard.messages:coreWidget.support.contact.direct" /></dt>
+                        <dd>
+                            <f:if condition="{contact.phone}"><a href="tel:{contact.phoneUri}">{contact.phone}</a></f:if>
+                            <f:if condition="{contact.phone} && {contact.email}"> · </f:if>
+                            <f:if condition="{contact.email}"><a href="mailto:{contact.email}">{contact.email}</a></f:if>
+                        </dd>
+                    </div>
+                    <f:if condition="{contact.hotline}">
+                        <div>
+                            <dt><f:translate key="jw_dashboard.messages:coreWidget.support.contact.hotline" /></dt>
+                            <dd>
+                                <f:if condition="{contact.hotlinePhone}"><a href="tel:{contact.hotlinePhoneUri}">{contact.hotlinePhone}</a></f:if>
+                                <f:if condition="{contact.hotlinePhone} && {contact.hotlineEmail}"> · </f:if>
+                                <f:if condition="{contact.hotlineEmail}"><a href="mailto:{contact.hotlineEmail}">{contact.hotlineEmail}</a></f:if>
+                            </dd>
+                        </div>
+                    </f:if>
+                </f:then>
+                <f:else>
+                    <div>
+                        <dt><f:translate key="jw_dashboard.messages:coreWidget.support.contact.hotline" /></dt>
+                        <dd>
+                            <f:if condition="{contact.phone}"><a href="tel:{contact.phoneUri}">{contact.phone}</a></f:if>
+                            <f:if condition="{contact.phone} && {contact.email}"> · </f:if>
+                            <f:if condition="{contact.email}"><a href="mailto:{contact.email}">{contact.email}</a></f:if>
+                        </dd>
+                    </div>
+                </f:else>
+            </f:if>
+        </dl>
+    </f:if>
+</section>
+
+</html>

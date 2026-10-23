@@ -1,0 +1,78 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:comment>Arguments: status (SupportStatus), moduleLink (array|null)</f:comment>
+<f:if condition="{status.allGood}">
+    <f:then>
+        <section class="jw-support__ok" aria-label="{f:translate(key: 'jw_dashboard.messages:coreWidget.support.status')}">
+            <span class="jw-support__ok-icon"><core:icon identifier="actions-check" size="small" /></span>
+            <strong class="jw-support__ok-title"><f:translate key="jw_dashboard.messages:coreWidget.support.status.ok" /></strong>
+            <span class="jw-support__ok-facts"><f:for each="{status.facts}" as="fact" iteration="factIteration"><f:translate key="jw_dashboard.messages:{fact.key}" arguments="{fact.arguments}" /><f:if condition="{factIteration.isLast}"><f:else> · </f:else></f:if></f:for></span>
+        </section>
+    </f:then>
+    <f:else if="{status.items}">
+        <section class="jw-support__card jw-support__status" aria-labelledby="jw-support-status-title">
+            <div class="jw-support__status-head">
+                <h3 class="jw-support__label" id="jw-support-status-title"><f:translate key="jw_dashboard.messages:coreWidget.support.status" /></h3>
+                <f:if condition="{status.state} == 'danger'">
+                    <f:then>
+                        <span class="jw-support__badge jw-support__badge--danger"><f:translate key="jw_dashboard.messages:coreWidget.support.status.badge.action" /></span>
+                    </f:then>
+                    <f:else if="{status.attentionCount} == 1">
+                        <span class="jw-support__badge jw-support__badge--warning"><f:translate key="jw_dashboard.messages:coreWidget.support.status.badge.attention.one" /></span>
+                    </f:else>
+                    <f:else if="{status.attentionCount}">
+                        <span class="jw-support__badge jw-support__badge--warning"><f:translate key="jw_dashboard.messages:coreWidget.support.status.badge.attention" arguments="{0: status.attentionCount}" /></span>
+                    </f:else>
+                </f:if>
+            </div>
+            <ul class="jw-support__status-list">
+                <f:for each="{status.items}" as="item">
+                    <li class="jw-support__status-item jw-support__status-item--{item.state}" data-status="{item.identifier}">
+                        <span class="jw-support__status-icon"><core:icon identifier="{item.icon}" size="small" /></span>
+                        <div class="jw-support__status-text">
+                            <strong class="jw-support__status-title"><f:translate key="jw_dashboard.messages:{item.title}" arguments="{item.titleArguments}" /></strong>
+                            <f:if condition="{item.body}">
+                                <span class="jw-support__status-body"><f:translate key="jw_dashboard.messages:{item.body}" arguments="{item.bodyArguments}" /></span>
+                            </f:if>
+                            <f:if condition="{item.details}">
+                                <span class="jw-support__status-body"><f:for each="{item.details}" as="detail" iteration="detailIteration"><f:translate key="jw_dashboard.messages:{detail.key}" arguments="{detail.arguments}" /><f:if condition="{detailIteration.isLast}"><f:else> · </f:else></f:if></f:for></span>
+                            </f:if>
+                        </div>
+                        <f:if condition="{item.action}">
+                            <f:if condition="{item.actionModule} && {moduleLink}">
+                                <f:then>
+                                    <a
+                                        href="{moduleLink.url}"
+                                        class="jw-support__status-action"
+                                        data-dispatch-action="TYPO3.ModuleMenu.showModule"
+                                        data-dispatch-args-list="{item.actionModule}"
+                                    >
+                                        <f:translate key="jw_dashboard.messages:{item.actionLabel}" />
+                                        <core:icon identifier="actions-arrow-right" size="small" />
+                                    </a>
+                                </f:then>
+                                <f:else if="{item.actionUrl}">
+                                    <a
+                                        href="{item.actionUrl}"
+                                        class="jw-support__status-action"
+                                        target="{f:if(condition: item.actionExternal, then: '_blank', else: '_self')}"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <f:translate key="jw_dashboard.messages:{item.actionLabel}" />
+                                        <core:icon identifier="{f:if(condition: item.actionExternal, then: 'actions-window-open', else: 'actions-arrow-right')}" size="small" />
+                                    </a>
+                                </f:else>
+                            </f:if>
+                        </f:if>
+                    </li>
+                </f:for>
+            </ul>
+        </section>
+    </f:else>
+</f:if>
+
+</html>

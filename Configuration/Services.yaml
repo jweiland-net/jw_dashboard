@@ -8,6 +8,8 @@ services:
     resource: '../Classes/*'
     exclude:
       - '../Classes/Domain/Model/*'
+      # Core dashboard widgets depend on the optional EXT:dashboard, see Services.php
+      - '../Classes/CoreDashboard/*'
 
   # Widgets are collected via the "jw_dashboard.widget" tag (see WidgetInterface)
 

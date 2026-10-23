@@ -1,0 +1,30 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:layout name="Widget/Widget" />
+
+<f:comment>
+    jweiland.net Support widget for the TYPO3 core dashboard (EXT:dashboard).
+    View data is prepared by JWeiland\JwDashboard\CoreDashboard\SupportWidget::getViewData():
+    status (SupportStatus), contact (SupportContact), agency (EditorGuide payload),
+    quickLinks (QuickLinks custom links), legal (extension settings), moduleLink (null without module access).
+</f:comment>
+
+<f:section name="main">
+<div class="jw-support">
+    <f:render partial="CoreWidget/StatusStrip" arguments="{status: status, moduleLink: moduleLink}" />
+    <div class="jw-support__grid">
+        <f:render partial="CoreWidget/ContactCard" arguments="{contact: contact}" />
+        <f:render partial="CoreWidget/AgencyCard" arguments="{agency: agency, quickLinks: quickLinks}" />
+    </div>
+</div>
+</f:section>
+
+<f:section name="footer">
+    <f:if condition="{legal.hasLinks} || {moduleLink}">
+        <f:render partial="CoreWidget/Footer" arguments="{legal: legal, agency: agency, moduleLink: moduleLink}" />
+    </f:if>
+</f:section>
+
+</html>

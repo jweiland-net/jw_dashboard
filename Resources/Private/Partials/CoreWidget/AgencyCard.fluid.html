@@ -1,0 +1,55 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:comment>Arguments: agency (EditorGuide payload), quickLinks (QuickLinks custom links)</f:comment>
+<section class="jw-support__card jw-support__agency" aria-label="{agency.agencyName}">
+    <div class="jw-support__agency-head">
+        <f:comment>The logo already contains the company name, so the name is only printed as text without logo.</f:comment>
+        <f:if condition="{agency.showAgencyLogo}">
+            <f:then>
+                <span class="jw-support__logo" role="img" aria-label="{agency.agencyName}"></span>
+            </f:then>
+            <f:else>
+                <strong class="jw-support__agency-name">{agency.agencyName}</strong>
+            </f:else>
+        </f:if>
+        <f:if condition="{agency.agencyWebsite}">
+            <a href="{agency.agencyWebsite}" class="jw-support__chip" target="_blank" rel="noopener noreferrer">
+                <core:icon identifier="actions-globe" size="small" />{agency.agencyWebsiteLabel}
+            </a>
+        </f:if>
+    </div>
+
+    <div class="jw-support__message">
+        <f:if condition="{agency.welcomeMessage}">
+            <f:then>{agency.welcomeMessage -> f:sanitize.html()}</f:then>
+            <f:else><p><f:translate key="jw_dashboard.messages:widget.editorGuide.defaultMessage" arguments="{0: agency.agencyName}" /></p></f:else>
+        </f:if>
+    </div>
+
+    <f:if condition="{quickLinks}">
+        <div class="jw-support__tools">
+            <h3 class="jw-support__label"><f:translate key="jw_dashboard.messages:coreWidget.support.helpTools" /></h3>
+            <ul class="jw-support__tiles">
+                <f:for each="{quickLinks}" as="link">
+                    <li>
+                        <a
+                            href="{link.url}"
+                            class="jw-support__tile"
+                            target="{f:if(condition: link.external, then: '_blank', else: '_self')}"
+                            rel="noopener noreferrer"
+                        >
+                            <span class="jw-support__tile-icon"><core:icon identifier="{link.icon}" size="small" /></span>
+                            <span>{link.label}</span>
+                        </a>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </f:if>
+</section>
+
+</html>

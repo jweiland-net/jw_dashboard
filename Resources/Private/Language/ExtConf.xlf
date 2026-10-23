@@ -78,6 +78,28 @@
             <trans-unit id="showAgencyLogo">
                 <source>Show Agency Logo</source>
             </trans-unit>
+            <!-- Legal -->
+            <trans-unit id="legalRepresentative">
+                <source>Legal Representative (owner or managing directors)</source>
+            </trans-unit>
+            <trans-unit id="legalSeat">
+                <source>Registered Office</source>
+            </trans-unit>
+            <trans-unit id="legalRegister">
+                <source>Register Court and Register Number</source>
+            </trans-unit>
+            <trans-unit id="imprintUrl">
+                <source>Imprint URL</source>
+            </trans-unit>
+            <trans-unit id="privacyUrl">
+                <source>Privacy Policy URL</source>
+            </trans-unit>
+            <trans-unit id="termsUrl">
+                <source>Terms and Conditions URL</source>
+            </trans-unit>
+            <trans-unit id="newsletterUrl">
+                <source>Customer Newsletter URL (leave empty to hide)</source>
+            </trans-unit>
             <!-- Quick links -->
             <trans-unit id="customQuickLinks">
                 <source>Custom Quick Links (label|url|icon-identifier, one per line)</source>

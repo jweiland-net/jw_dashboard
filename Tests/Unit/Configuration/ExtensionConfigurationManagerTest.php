@@ -62,6 +62,7 @@ final class ExtensionConfigurationManagerTest extends TestCase
         self::assertTrue($extConf->enableWidgetTypo3Version);
         self::assertTrue($extConf->enableWidgetTypo3News);
         self::assertSame('jweiland.net', $extConf->agencyName);
+        self::assertSame('https://jweiland.net/impressum.html', $extConf->imprintUrl);
         self::assertSame(5, $extConf->newsItemCount);
         self::assertSame(30, $extConf->contractRenewalWarningDays);
     }

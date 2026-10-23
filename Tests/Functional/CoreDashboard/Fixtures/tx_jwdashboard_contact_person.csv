@@ -1,0 +1,4 @@
+"tx_jwdashboard_contact_person"
+,"uid","pid","name","email","phone","mobile","role","photo","is_main_contact","deleted","hidden"
+,1,0,"Anna Becker","anna.becker@example.com","+49 711 000000-10","","Project Manager",0,1,0,0
+,2,0,"Max Mustermann","max@example.com","+49 711 000000-20","","Developer",0,0,0,0

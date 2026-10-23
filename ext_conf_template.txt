@@ -82,6 +82,27 @@ welcomeMessage =
 # cat=branding/appearance; type=boolean; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:showAgencyLogo
 showAgencyLogo = 1
 
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:legalRepresentative
+legalRepresentative = Jochen Weiland
+
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:legalSeat
+legalSeat = Filderstadt
+
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:legalRegister
+legalRegister = Amtsgericht Stuttgart, HRA 741874
+
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:imprintUrl
+imprintUrl = https://jweiland.net/impressum.html
+
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:privacyUrl
+privacyUrl = https://jweiland.net/datenschutz.html
+
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:termsUrl
+termsUrl = https://jweiland.net/agb.html
+
+# cat=branding/legal; type=string; label=LLL:EXT:jw_dashboard/Resources/Private/Language/ExtConf.xlf:newsletterUrl
+newsletterUrl = https://jweiland.net/typo3-newsletter.html
+
 # ==============================================================
 # Category: quicklinks
 # ==============================================================

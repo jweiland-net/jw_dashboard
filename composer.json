@@ -40,8 +40,12 @@
 		"ergebnis/composer-normalize": "^2.44",
 		"phpunit/phpunit": "^11.2.5",
 		"ssch/typo3-rector": "^3.6",
+		"typo3/cms-dashboard": "^14.0",
 		"typo3/coding-standards": "^0.8",
 		"typo3/testing-framework": "^9.0.1"
+	},
+	"suggest": {
+		"typo3/cms-dashboard": "Adds the \"jweiland.net Support\" widget to the TYPO3 core dashboard"
 	},
 	"replace": {
 		"typo3-ter/jw-dashboard": "self.version"
@@ -69,7 +73,18 @@
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "jw_dashboard",
-			"web-dir": ".Build/public"
+			"web-dir": ".Build/public",
+			"Package": {
+				"providesPackages": {}
+			}
 		}
+	},
+	"scripts": {
+		"test:functional": "phpunit -c Build/phpunit/FunctionalTests.xml",
+		"test:unit": "phpunit -c Build/phpunit/UnitTests.xml"
+	},
+	"scripts-descriptions": {
+		"test:functional": "Runs the functional tests (set typo3DatabaseDriver=pdo_sqlite for a local SQLite run)",
+		"test:unit": "Runs the unit tests"
 	}
 }

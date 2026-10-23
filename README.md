@@ -23,6 +23,14 @@ information — all powered by jweiland.net tooling.
 
 Every widget can be toggled individually via extension settings.
 
+### TYPO3 core dashboard widget
+
+If the system extension `dashboard` is installed, the widget **jweiland.net Support**
+(group *jweiland.net*) is available in *Dashboard › Add widget*. It shows the agency
+contact, help links and the system status in the layout of a classic agency support
+widget and links to the JW Dashboard module. It has no data of its own: everything is
+read from the configured JW Dashboard widgets (see `Specification/Widgets/CoreDashboard.rst`).
+
 ---
 
 ## Requirements
@@ -77,8 +85,17 @@ Full documentation lives in `Specification/`. The entry point is
 
 ```bash
 composer install
-.Build/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit
+
+# Unit tests
+composer test:unit
+
+# Functional tests (real TYPO3 instance incl. EXT:dashboard), e.g. with SQLite
+typo3DatabaseDriver=pdo_sqlite composer test:functional
 ```
+
+The phpunit configurations live in `Build/phpunit/`. Functional tests also run against
+MySQL/MariaDB via the usual `typo3DatabaseHost`, `typo3DatabaseName`, `typo3DatabaseUsername`
+and `typo3DatabasePassword` environment variables.
 
 ---
 

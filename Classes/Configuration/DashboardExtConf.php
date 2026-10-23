@@ -48,6 +48,15 @@ final readonly class DashboardExtConf
         public string $welcomeMessage,
         public bool $showAgencyLogo,
 
+        // Legal information (imprint, privacy, terms) shown in the core dashboard support widget
+        public string $legalRepresentative,
+        public string $legalSeat,
+        public string $legalRegister,
+        public string $imprintUrl,
+        public string $privacyUrl,
+        public string $termsUrl,
+        public string $newsletterUrl,
+
         // Quick links (raw multi-line string: "label|url|icon" per line)
         public string $customQuickLinks,
 

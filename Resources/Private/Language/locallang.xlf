@@ -241,7 +241,7 @@
                 <source>Editor Guide</source>
             </trans-unit>
             <trans-unit id="widget.editorGuide.defaultMessage">
-                <source>Need help with your website? The team of %s is happy to support you.</source>
+                <source>Need help customizing your website? The %s team is happy to help you make it your own. Reach out to us with your ideas, and we’ll guide you through the options.</source>
             </trans-unit>
             <trans-unit id="widget.editorGuide.yourContact">
                 <source>Your personal contact</source>
@@ -380,6 +380,154 @@
             <!-- Widget: Maintenance Contract – term -->
             <trans-unit id="widget.maintenanceContract.progress">
                 <source>%s %% of the contract term elapsed</source>
+            </trans-unit>
+            <!-- Core dashboard widget: Support -->
+            <trans-unit id="coreWidget.preset.title">
+                <source>jweiland.net</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.preset.description">
+                <source>Dashboard with all jweiland.net widgets: agency contact, help links and system status.</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.group.title">
+                <source>jweiland.net</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.title">
+                <source>jweiland.net Support</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.description">
+                <source>Agency contact, help links and TYPO3 update status from the JW Dashboard, with a link to the JW Dashboard module.</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status">
+                <source>System status</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.openDashboard">
+                <source>Open JW Dashboard</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.openDashboard.title">
+                <source>Open the JW Dashboard module with all project details</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.imprint">
+                <source>Imprint</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.representative">
+                <source>Represented by</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.seat">
+                <source>Registered office</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.register">
+                <source>Register</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacy.body">
+                <source>Information on how we process personal data can be found in our</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacy.link">
+                <source>privacy policy</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacy.confidential">
+                <source>Please treat all exchanged data according to its purpose and, where required, confidentially.</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.terms.link">
+                <source>Terms and conditions</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok">
+                <source>System up to date</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.version">
+                <source>TYPO3 %s</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.supportUntil">
+                <source>free support until %s</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.eltsUntil">
+                <source>extended support (ELTS) until %s</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.contracts.one">
+                <source>1 maintenance contract active</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.contracts.many">
+                <source>%d maintenance contracts active</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.badge.attention">
+                <source>%d need attention</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.badge.action">
+                <source>Action required</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.update">
+                <source>TYPO3 update available</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.update.body">
+                <source>Installed %1$s · latest %2$s</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.security">
+                <source>Security update recommended</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.unsupported">
+                <source>TYPO3 %d is no longer supported</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.unsupported.body">
+                <source>Please plan the upgrade to a new major version.</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.releaseInfo">
+                <source>Release info</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.review">
+                <source>Review</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contracts.one">
+                <source>1 maintenance contract needs attention</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contracts.many">
+                <source>%d maintenance contracts need attention</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.endsIn">
+                <source>%1$s ends in %2$d days</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.endsTomorrow">
+                <source>%s ends tomorrow</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.endsToday">
+                <source>%s ends today</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.expired">
+                <source>%s expired</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.more">
+                <source>+%d more</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.team">
+                <source>Your contact</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.teamName">
+                <source>%s team</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.call">
+                <source>Call</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.write">
+                <source>Write e-mail</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.direct">
+                <source>Direct</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.hotline">
+                <source>Hotline</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.helpTools">
+                <source>Help &amp; tools</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.fullImprint">
+                <source>Full imprint</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacyPolicy">
+                <source>Privacy policy</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.newsletterShort">
+                <source>Customer newsletter</source>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.badge.attention.one">
+                <source>Needs attention</source>
             </trans-unit>
         </body>
     </file>

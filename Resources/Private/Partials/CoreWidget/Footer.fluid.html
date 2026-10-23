@@ -1,0 +1,69 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:comment>
+    Arguments: legal (extension settings), agency (EditorGuide payload), moduleLink (array|null).
+    The imprint details fold out of "Imprint" (native details element, no JavaScript needed).
+</f:comment>
+<div class="jw-support-footer">
+    <f:if condition="{legal.hasLinks}">
+        <ul class="jw-support-footer__links">
+            <f:if condition="{legal.showImprintLink}">
+                <li><a href="{legal.imprintUrl}" target="_blank" rel="noopener noreferrer"><f:translate key="jw_dashboard.messages:coreWidget.support.legal.imprint" /></a></li>
+            </f:if>
+            <f:if condition="{legal.privacyUrl}">
+                <li><a href="{legal.privacyUrl}" target="_blank" rel="noopener noreferrer"><f:translate key="jw_dashboard.messages:coreWidget.support.legal.privacyPolicy" /></a></li>
+            </f:if>
+            <f:if condition="{legal.termsUrl}">
+                <li><a href="{legal.termsUrl}" target="_blank" rel="noopener noreferrer"><f:translate key="jw_dashboard.messages:coreWidget.support.legal.terms.link" /></a></li>
+            </f:if>
+            <f:if condition="{legal.newsletterUrl}">
+                <li><a href="{legal.newsletterUrl}" target="_blank" rel="noopener noreferrer"><f:translate key="jw_dashboard.messages:coreWidget.support.legal.newsletterShort" /></a></li>
+            </f:if>
+        </ul>
+
+        <f:if condition="{legal.hasDetails}">
+            <details class="jw-support-footer__imprint">
+                <summary>
+                    <f:translate key="jw_dashboard.messages:coreWidget.support.legal.imprint" />
+                    <core:icon identifier="actions-chevron-down" size="small" />
+                </summary>
+                <div class="jw-support-footer__imprint-body">
+                    <p>
+                        <strong>{agency.agencyName}</strong>
+                        <f:if condition="{legal.representative}"><br /><f:translate key="jw_dashboard.messages:coreWidget.support.legal.representative" />: {legal.representative}</f:if>
+                        <f:if condition="{legal.seat}"><br /><f:translate key="jw_dashboard.messages:coreWidget.support.legal.seat" />: {legal.seat}</f:if>
+                        <f:if condition="{legal.register}"><br /><f:translate key="jw_dashboard.messages:coreWidget.support.legal.register" />: {legal.register}</f:if>
+                        <f:if condition="{legal.imprintUrl}"><br /><a href="{legal.imprintUrl}" target="_blank" rel="noopener noreferrer"><f:translate key="jw_dashboard.messages:coreWidget.support.legal.fullImprint" /></a></f:if>
+                    </p>
+                    <f:if condition="{legal.privacyUrl}">
+                        <p>
+                            <f:translate key="jw_dashboard.messages:coreWidget.support.legal.privacy.body" />
+                            <a href="{legal.privacyUrl}" target="_blank" rel="noopener noreferrer"><f:translate key="jw_dashboard.messages:coreWidget.support.legal.privacy.link" /></a>.
+                            <f:translate key="jw_dashboard.messages:coreWidget.support.legal.privacy.confidential" />
+                        </p>
+                    </f:if>
+                </div>
+            </details>
+        </f:if>
+    </f:if>
+
+    <f:if condition="{moduleLink}">
+        <a
+            href="{moduleLink.url}"
+            class="jw-support__button jw-support__button--primary jw-support-footer__cta"
+            title="{f:translate(key: 'jw_dashboard.messages:coreWidget.support.openDashboard.title')}"
+            data-dispatch-action="TYPO3.ModuleMenu.showModule"
+            data-dispatch-args-list="{moduleLink.identifier}"
+        >
+            <core:icon identifier="ext-jw-dashboard" size="small" />
+            <span><f:translate key="jw_dashboard.messages:coreWidget.support.openDashboard" /></span>
+            <core:icon identifier="actions-arrow-right" size="small" />
+        </a>
+    </f:if>
+</div>
+
+</html>

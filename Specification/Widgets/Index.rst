@@ -21,3 +21,4 @@ This chapter documents each widget individually.
    Storage
    QuickLinks
    ExtensionUpdates
+   CoreDashboard
