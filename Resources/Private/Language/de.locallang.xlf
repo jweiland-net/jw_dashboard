@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2024-01-01T00:00:00Z" product-name="jw_dashboard">
+        <header/>
+        <body>
+            <!-- TCA: Contact Person -->
+            <trans-unit id="tx_jwdashboard_contact_person">
+                <source>Contact Person</source>
+                <target state="translated">Ansprechpartner</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.name">
+                <source>Full Name</source>
+                <target state="translated">Vollständiger Name</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.email">
+                <source>E-Mail Address</source>
+                <target state="translated">E-Mail-Adresse</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.phone">
+                <source>Phone</source>
+                <target state="translated">Telefon</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.mobile">
+                <source>Mobile</source>
+                <target state="translated">Mobil</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.role">
+                <source>Role / Position</source>
+                <target state="translated">Rolle / Position</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.photo">
+                <source>Photo</source>
+                <target state="translated">Foto</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.is_main_contact">
+                <source>Primary Contact</source>
+                <target state="translated">Hauptansprechpartner</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contact_person.bio">
+                <source>Short Bio</source>
+                <target state="translated">Kurzbiografie</target>
+            </trans-unit>
+            <trans-unit id="tab.contact">
+                <source>Contact</source>
+                <target state="translated">Kontakt</target>
+            </trans-unit>
+            <trans-unit id="tab.bio">
+                <source>Bio</source>
+                <target state="translated">Biografie</target>
+            </trans-unit>
+            <!-- TCA: Contract -->
+            <trans-unit id="tx_jwdashboard_contract">
+                <source>Maintenance Contract</source>
+                <target state="translated">Wartungsvertrag</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.title">
+                <source>Contract Title</source>
+                <target state="translated">Vertragsbezeichnung</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.client_name">
+                <source>Client Name</source>
+                <target state="translated">Kundenname</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.client_number">
+                <source>Client Number</source>
+                <target state="translated">Kundennummer</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.start_date">
+                <source>Start Date</source>
+                <target state="translated">Startdatum</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.end_date">
+                <source>End Date</source>
+                <target state="translated">Enddatum</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.status">
+                <source>Status</source>
+                <target state="translated">Status</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.contract_type">
+                <source>Contract Type</source>
+                <target state="translated">Vertragsart</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.renewal_prompt_days">
+                <source>Renewal Warning (Days)</source>
+                <target state="translated">Verlängerungshinweis (Tage)</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.notes">
+                <source>Notes</source>
+                <target state="translated">Notizen</target>
+            </trans-unit>
+            <trans-unit id="tx_jwdashboard_contract.contact_persons">
+                <source>Assigned Contact Persons</source>
+                <target state="translated">Zugeordnete Ansprechpartner</target>
+            </trans-unit>
+            <trans-unit id="tab.dates">
+                <source>Dates</source>
+                <target state="translated">Laufzeit</target>
+            </trans-unit>
+            <trans-unit id="tab.contacts">
+                <source>Contacts</source>
+                <target state="translated">Ansprechpartner</target>
+            </trans-unit>
+            <!-- Contract status labels -->
+            <trans-unit id="contract.status.active">
+                <source>Active</source>
+                <target state="translated">Aktiv</target>
+            </trans-unit>
+            <trans-unit id="contract.status.expiring">
+                <source>Expiring Soon</source>
+                <target state="translated">Läuft bald ab</target>
+            </trans-unit>
+            <trans-unit id="contract.status.expired">
+                <source>Expired</source>
+                <target state="translated">Abgelaufen</target>
+            </trans-unit>
+            <trans-unit id="contract.status.cancelled">
+                <source>Cancelled</source>
+                <target state="translated">Gekündigt</target>
+            </trans-unit>
+            <!-- Contract type labels -->
+            <trans-unit id="contract.type.maintenance">
+                <source>Maintenance</source>
+                <target state="translated">Wartung</target>
+            </trans-unit>
+            <trans-unit id="contract.type.hosting">
+                <source>Hosting</source>
+                <target state="translated">Hosting</target>
+            </trans-unit>
+            <trans-unit id="contract.type.support">
+                <source>Support</source>
+                <target state="translated">Support</target>
+            </trans-unit>
+            <trans-unit id="contract.type.full_service">
+                <source>Full Service</source>
+                <target state="translated">Full Service</target>
+            </trans-unit>
+            <!-- Dashboard -->
+            <trans-unit id="dashboard.title">
+                <source>JW Dashboard</source>
+                <target state="translated">JW Dashboard</target>
+            </trans-unit>
+            <trans-unit id="dashboard.noWidgets.title">
+                <source>No widgets enabled</source>
+                <target state="translated">Keine Widgets aktiviert</target>
+            </trans-unit>
+            <trans-unit id="dashboard.noWidgets.body">
+                <source>All widgets are disabled. Enable them in Admin Tools &gt; Settings &gt; Extension Configuration &gt; jw_dashboard.</source>
+                <target state="translated">Alle Widgets sind deaktiviert. Aktivieren Sie diese unter Admin-Tools &gt; Einstellungen &gt; Extension-Konfiguration &gt; jw_dashboard.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.refresh">
+                <source>Refresh %s</source>
+                <target state="translated">%s aktualisieren</target>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.refreshFailed">
+                <source>The widget could not be refreshed.</source>
+                <target state="translated">Das Widget konnte nicht aktualisiert werden.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.notAvailable">
+                <source>Widget data is currently unavailable.</source>
+                <target state="translated">Die Widget-Daten sind derzeit nicht verfügbar.</target>
+            </trans-unit>
+            <!-- Widget: TYPO3 Version -->
+            <trans-unit id="widget.typo3Version.title">
+                <source>TYPO3 Version</source>
+                <target state="translated">TYPO3-Version</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.installed">
+                <source>Installed</source>
+                <target state="translated">Installiert</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.latest">
+                <source>Latest</source>
+                <target state="translated">Neueste</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.checkFailed">
+                <source>The latest TYPO3 version could not be determined.</source>
+                <target state="translated">Die neueste TYPO3-Version konnte nicht ermittelt werden.</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.upToDate">
+                <source>Your TYPO3 installation is up to date.</source>
+                <target state="translated">Ihre TYPO3-Installation ist auf dem neuesten Stand.</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.updateAvailable">
+                <source>Update available</source>
+                <target state="translated">Update verfügbar</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.updateAvailable.body">
+                <source>TYPO3 %s is available.</source>
+                <target state="translated">TYPO3 %s ist verfügbar.</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.securityUpdate">
+                <source>Security update available</source>
+                <target state="translated">Sicherheitsupdate verfügbar</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.securityUpdate.body">
+                <source>TYPO3 %s fixes security issues. Please update as soon as possible.</source>
+                <target state="translated">TYPO3 %s behebt Sicherheitslücken. Bitte aktualisieren Sie so bald wie möglich.</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.releaseNotes">
+                <source>Release information</source>
+                <target state="translated">Release-Informationen</target>
+            </trans-unit>
+            <!-- Widget: TYPO3 News -->
+            <trans-unit id="widget.typo3News.title">
+                <source>TYPO3 News</source>
+                <target state="translated">TYPO3-News</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3News.allNews">
+                <source>All TYPO3 news</source>
+                <target state="translated">Alle TYPO3-News</target>
+            </trans-unit>
+            <!-- Widget: Site Health -->
+            <trans-unit id="widget.siteHealth.title">
+                <source>Site Health</source>
+                <target state="translated">Website-Zustand</target>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.pages">
+                <source>Published pages</source>
+                <target state="translated">Veröffentlichte Seiten</target>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.hiddenPages">
+                <source>Hidden pages</source>
+                <target state="translated">Verborgene Seiten</target>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.files">
+                <source>Files</source>
+                <target state="translated">Dateien</target>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.brokenLinks">
+                <source>Broken links</source>
+                <target state="translated">Defekte Links</target>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.schedulerTasks">
+                <source>Active scheduler tasks</source>
+                <target state="translated">Aktive Scheduler-Tasks</target>
+            </trans-unit>
+            <trans-unit id="widget.siteHealth.notInstalled">
+                <source>System extension "%s" is not installed</source>
+                <target state="translated">Systemextension „%s“ ist nicht installiert</target>
+            </trans-unit>
+            <!-- Widget: Maintenance Contract -->
+            <trans-unit id="widget.maintenanceContract.title">
+                <source>Maintenance Contract</source>
+                <target state="translated">Wartungsvertrag</target>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.renewalHint">
+                <source>%d contract(s) need your attention.</source>
+                <target state="translated">%d Vertrag/Verträge erfordern Ihre Aufmerksamkeit.</target>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.until">
+                <source>until</source>
+                <target state="translated">bis</target>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.noContract">
+                <source>No maintenance contract found.</source>
+                <target state="translated">Es wurde kein Wartungsvertrag gefunden.</target>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.signupPrompt">
+                <source>Consider signing up for a maintenance contract to keep your TYPO3 installation secure and up to date.</source>
+                <target state="translated">Erwägen Sie den Abschluss eines Wartungsvertrags, damit Ihre TYPO3-Installation sicher und aktuell bleibt.</target>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.signupLink">
+                <source>Learn more about maintenance contracts</source>
+                <target state="translated">Mehr über Wartungsverträge erfahren</target>
+            </trans-unit>
+            <trans-unit id="widget.maintenanceContract.manage">
+                <source>Manage contracts</source>
+                <target state="translated">Verträge verwalten</target>
+            </trans-unit>
+            <trans-unit id="contract.state.active">
+                <source>Active</source>
+                <target state="translated">Aktiv</target>
+            </trans-unit>
+            <trans-unit id="contract.state.expiring">
+                <source>Renewal due</source>
+                <target state="translated">Verlängerung fällig</target>
+            </trans-unit>
+            <trans-unit id="contract.state.expired">
+                <source>Expired</source>
+                <target state="translated">Abgelaufen</target>
+            </trans-unit>
+            <trans-unit id="contract.state.unlimited">
+                <source>Unlimited</source>
+                <target state="translated">Unbefristet</target>
+            </trans-unit>
+            <!-- Widget: Quick Links -->
+            <trans-unit id="widget.quickLinks.title">
+                <source>Quick Links</source>
+                <target state="translated">Schnellzugriff</target>
+            </trans-unit>
+            <trans-unit id="widget.quickLinks.project">
+                <source>Project</source>
+                <target state="translated">Projekt</target>
+            </trans-unit>
+            <trans-unit id="widget.quickLinks.backend">
+                <source>Backend</source>
+                <target state="translated">Backend</target>
+            </trans-unit>
+            <!-- Widget: Extensions -->
+            <trans-unit id="widget.extensionUpdates.title">
+                <source>Installed Extensions</source>
+                <target state="translated">Installierte Extensions</target>
+            </trans-unit>
+            <trans-unit id="widget.extensionUpdates.intro">
+                <source>%d third-party extensions are active. Please review them regularly for updates.</source>
+                <target state="translated">%d Drittanbieter-Extensions sind aktiv. Bitte prüfen Sie diese regelmäßig auf Updates.</target>
+            </trans-unit>
+            <trans-unit id="widget.extensionUpdates.none">
+                <source>No third-party extensions are active.</source>
+                <target state="translated">Es sind keine Drittanbieter-Extensions aktiv.</target>
+            </trans-unit>
+            <!-- Widget: Editor Guide -->
+            <trans-unit id="widget.editorGuide.title">
+                <source>Editor Guide</source>
+                <target state="translated">Leitfaden für Redakteure</target>
+            </trans-unit>
+            <trans-unit id="widget.editorGuide.defaultMessage">
+                <source>Need help customizing your website? The %s team is happy to help you make it your own. Reach out to us with your ideas, and we’ll guide you through the options.</source>
+                <target state="translated">Sie möchten Ihre Website individuell anpassen? Das Team von %s unterstützt Sie gerne dabei, sie zu Ihrer eigenen zu machen. Melden Sie sich mit Ihren Ideen bei uns, wir zeigen Ihnen die Möglichkeiten.</target>
+            </trans-unit>
+            <trans-unit id="widget.editorGuide.yourContact">
+                <source>Your personal contact</source>
+                <target state="translated">Ihr persönlicher Ansprechpartner</target>
+            </trans-unit>
+            <!-- Dashboard (v2) -->
+            <trans-unit id="dashboard.greeting.morning">
+                <source>Good morning, %s</source>
+                <target state="translated">Guten Morgen, %s</target>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.afternoon">
+                <source>Good afternoon, %s</source>
+                <target state="translated">Guten Tag, %s</target>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.evening">
+                <source>Good evening, %s</source>
+                <target state="translated">Guten Abend, %s</target>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.morning.anonymous">
+                <source>Good morning</source>
+                <target state="translated">Guten Morgen</target>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.afternoon.anonymous">
+                <source>Good afternoon</source>
+                <target state="translated">Guten Tag</target>
+            </trans-unit>
+            <trans-unit id="dashboard.greeting.evening.anonymous">
+                <source>Good evening</source>
+                <target state="translated">Guten Abend</target>
+            </trans-unit>
+            <trans-unit id="dashboard.lead">
+                <source>Here's what is happening on your website.</source>
+                <target state="translated">Das passiert gerade auf Ihrer Website.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.widget.loading">
+                <source>Loading widget data…</source>
+                <target state="translated">Widget-Daten werden geladen…</target>
+            </trans-unit>
+            <trans-unit id="dashboard.showTable">
+                <source>Show data as table</source>
+                <target state="translated">Daten als Tabelle anzeigen</target>
+            </trans-unit>
+            <!-- Widget: TYPO3 Version – lifecycle -->
+            <trans-unit id="widget.typo3Version.lifecycle">
+                <source>TYPO3 %d support</source>
+                <target state="translated">Support für TYPO3 %d</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.leftYears">
+                <source>%1$d years, %2$d months left</source>
+                <target state="translated">Noch %1$d Jahre, %2$d Monate</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.leftDays">
+                <source>%d days left</source>
+                <target state="translated">Noch %d Tage</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.unsupported">
+                <source>No longer supported</source>
+                <target state="translated">Nicht mehr unterstützt</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.regular">
+                <source>Free support until</source>
+                <target state="translated">Kostenloser Support bis</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.elts">
+                <source>ELTS until</source>
+                <target state="translated">ELTS bis</target>
+            </trans-unit>
+            <trans-unit id="widget.typo3Version.lifecycle.aria">
+                <source>Support timeline: free support until %1$s, extended long term support until %2$s</source>
+                <target state="translated">Support-Zeitleiste: kostenloser Support bis %1$s, Extended Long Term Support bis %2$s</target>
+            </trans-unit>
+            <!-- Widget: Content Activity -->
+            <trans-unit id="widget.contentActivity.title">
+                <source>Content Activity</source>
+                <target state="translated">Inhaltsaktivität</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.total">
+                <source>Changes</source>
+                <target state="translated">Änderungen</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.created">
+                <source>Created</source>
+                <target state="translated">Erstellt</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.updated">
+                <source>Updated</source>
+                <target state="translated">Aktualisiert</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.editors">
+                <source>Active editors</source>
+                <target state="translated">Aktive Redakteure</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.caption">
+                <source>Record changes per week, last %d weeks</source>
+                <target state="translated">Datensatzänderungen pro Woche, letzte %d Wochen</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.tooltip">
+                <source>%1$s: %2$d changes</source>
+                <target state="translated">%1$s: %2$d Änderungen</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.thisWeek">
+                <source>This week</source>
+                <target state="translated">Diese Woche</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.week">
+                <source>Week</source>
+                <target state="translated">Woche</target>
+            </trans-unit>
+            <trans-unit id="widget.contentActivity.empty">
+                <source>No changes in the last %d weeks.</source>
+                <target state="translated">Keine Änderungen in den letzten %d Wochen.</target>
+            </trans-unit>
+            <!-- Widget: Recently Changed -->
+            <trans-unit id="widget.recentChanges.title">
+                <source>Recently Changed</source>
+                <target state="translated">Zuletzt geändert</target>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.action.created">
+                <source>New</source>
+                <target state="translated">Neu</target>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.action.updated">
+                <source>Edited</source>
+                <target state="translated">Bearbeitet</target>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.ago">
+                <source>%s ago</source>
+                <target state="translated">vor %s</target>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.edit">
+                <source>Edit record</source>
+                <target state="translated">Datensatz bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.openPage">
+                <source>Open page</source>
+                <target state="translated">Seite öffnen</target>
+            </trans-unit>
+            <trans-unit id="widget.recentChanges.empty">
+                <source>No recently changed pages or content elements.</source>
+                <target state="translated">Keine kürzlich geänderten Seiten oder Inhaltselemente.</target>
+            </trans-unit>
+            <!-- Widget: Storage -->
+            <trans-unit id="widget.storage.title">
+                <source>Storage</source>
+                <target state="translated">Speicher</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.file">
+                <source>%d file</source>
+                <target state="translated">%d Datei</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.files">
+                <source>%d files</source>
+                <target state="translated">%d Dateien</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.empty">
+                <source>No files found.</source>
+                <target state="translated">Keine Dateien gefunden.</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.images">
+                <source>Images</source>
+                <target state="translated">Bilder</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.documents">
+                <source>Documents</source>
+                <target state="translated">Dokumente</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.videos">
+                <source>Videos</source>
+                <target state="translated">Videos</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.audio">
+                <source>Audio</source>
+                <target state="translated">Audio</target>
+            </trans-unit>
+            <trans-unit id="widget.storage.category.other">
+                <source>Other</source>
+                <target state="translated">Sonstiges</target>
+            </trans-unit>
+            <!-- Widget: Maintenance Contract – term -->
+            <trans-unit id="widget.maintenanceContract.progress">
+                <source>%s %% of the contract term elapsed</source>
+                <target state="translated">%s %% der Vertragslaufzeit verstrichen</target>
+            </trans-unit>
+            <!-- Core dashboard widget: Support -->
+            <trans-unit id="coreWidget.preset.title">
+                <source>jweiland.net</source>
+                <target state="translated">jweiland.net</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.preset.description">
+                <source>Dashboard with all jweiland.net widgets: agency contact, help links and system status.</source>
+                <target state="translated">Dashboard mit allen jweiland.net-Widgets: Agenturkontakt, Hilfe-Links und Systemstatus.</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.group.title">
+                <source>jweiland.net</source>
+                <target state="translated">jweiland.net</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.title">
+                <source>jweiland.net Support</source>
+                <target state="translated">jweiland.net-Support</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.description">
+                <source>Agency contact, help links and TYPO3 update status from the JW Dashboard, with a link to the JW Dashboard module.</source>
+                <target state="translated">Agenturkontakt, Hilfe-Links und TYPO3-Update-Status aus dem JW Dashboard, mit Link zum Modul „JW Dashboard“.</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status">
+                <source>System status</source>
+                <target state="translated">Systemstatus</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.openDashboard">
+                <source>Open JW Dashboard</source>
+                <target state="translated">JW Dashboard öffnen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.openDashboard.title">
+                <source>Open the JW Dashboard module with all project details</source>
+                <target state="translated">Das Modul „JW Dashboard“ mit allen Projektdetails öffnen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.imprint">
+                <source>Imprint</source>
+                <target state="translated">Impressum</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.representative">
+                <source>Represented by</source>
+                <target state="translated">Vertreten durch</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.seat">
+                <source>Registered office</source>
+                <target state="translated">Sitz</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.register">
+                <source>Register</source>
+                <target state="translated">Registereintrag</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacy.body">
+                <source>Information on how we process personal data can be found in our</source>
+                <target state="translated">Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacy.link">
+                <source>privacy policy</source>
+                <target state="translated">Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacy.confidential">
+                <source>Please treat all exchanged data according to its purpose and, where required, confidentially.</source>
+                <target state="translated">Bitte behandeln Sie alle ausgetauschten Daten zweckgebunden und, soweit erforderlich, vertraulich.</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.terms.link">
+                <source>Terms and conditions</source>
+                <target state="translated">AGB</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok">
+                <source>System up to date</source>
+                <target state="translated">System ist aktuell</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.version">
+                <source>TYPO3 %s</source>
+                <target state="translated">TYPO3 %s</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.supportUntil">
+                <source>free support until %s</source>
+                <target state="translated">kostenloser Support bis %s</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.eltsUntil">
+                <source>extended support (ELTS) until %s</source>
+                <target state="translated">erweiterter Support (ELTS) bis %s</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.contracts.one">
+                <source>1 maintenance contract active</source>
+                <target state="translated">1 Wartungsvertrag aktiv</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.ok.contracts.many">
+                <source>%d maintenance contracts active</source>
+                <target state="translated">%d Wartungsverträge aktiv</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.badge.attention">
+                <source>%d need attention</source>
+                <target state="translated">%d mit Handlungsbedarf</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.badge.action">
+                <source>Action required</source>
+                <target state="translated">Handlungsbedarf</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.update">
+                <source>TYPO3 update available</source>
+                <target state="translated">TYPO3-Update verfügbar</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.update.body">
+                <source>Installed %1$s · latest %2$s</source>
+                <target state="translated">Installiert %1$s · aktuell %2$s</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.security">
+                <source>Security update recommended</source>
+                <target state="translated">Sicherheitsupdate empfohlen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.unsupported">
+                <source>TYPO3 %d is no longer supported</source>
+                <target state="translated">TYPO3 %d wird nicht mehr unterstützt</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.unsupported.body">
+                <source>Please plan the upgrade to a new major version.</source>
+                <target state="translated">Bitte planen Sie das Upgrade auf eine neue Hauptversion.</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.releaseInfo">
+                <source>Release info</source>
+                <target state="translated">Release-Infos</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.review">
+                <source>Review</source>
+                <target state="translated">Prüfen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contracts.one">
+                <source>1 maintenance contract needs attention</source>
+                <target state="translated">1 Wartungsvertrag erfordert Aufmerksamkeit</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contracts.many">
+                <source>%d maintenance contracts need attention</source>
+                <target state="translated">%d Wartungsverträge erfordern Aufmerksamkeit</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.endsIn">
+                <source>%1$s ends in %2$d days</source>
+                <target state="translated">%1$s endet in %2$d Tagen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.endsTomorrow">
+                <source>%s ends tomorrow</source>
+                <target state="translated">%s endet morgen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.endsToday">
+                <source>%s ends today</source>
+                <target state="translated">%s endet heute</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.expired">
+                <source>%s expired</source>
+                <target state="translated">%s abgelaufen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.contract.more">
+                <source>+%d more</source>
+                <target state="translated">+%d weitere</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.team">
+                <source>Your contact</source>
+                <target state="translated">Ihr Kontakt</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.teamName">
+                <source>%s team</source>
+                <target state="translated">Team %s</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.call">
+                <source>Call</source>
+                <target state="translated">Anrufen</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.write">
+                <source>Write e-mail</source>
+                <target state="translated">E-Mail schreiben</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.direct">
+                <source>Direct</source>
+                <target state="translated">Direkt</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.contact.hotline">
+                <source>Hotline</source>
+                <target state="translated">Hotline</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.helpTools">
+                <source>Help &amp; tools</source>
+                <target state="translated">Hilfe &amp; Tools</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.fullImprint">
+                <source>Full imprint</source>
+                <target state="translated">Vollständiges Impressum</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.privacyPolicy">
+                <source>Privacy policy</source>
+                <target state="translated">Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.legal.newsletterShort">
+                <source>Customer newsletter</source>
+                <target state="translated">Kunden-Newsletter</target>
+            </trans-unit>
+            <trans-unit id="coreWidget.support.status.badge.attention.one">
+                <source>Needs attention</source>
+                <target state="translated">Aufmerksamkeit erforderlich</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

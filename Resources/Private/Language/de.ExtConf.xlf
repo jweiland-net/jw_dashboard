@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2024-01-01T00:00:00Z" product-name="jw_dashboard">
+        <header/>
+        <body>
+            <!-- Widget enables -->
+            <trans-unit id="enableWidgetTypo3Version">
+                <source>Enable TYPO3 Version Widget</source>
+                <target state="translated">Widget „TYPO3-Version“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetTypo3News">
+                <source>Enable TYPO3 News Widget</source>
+                <target state="translated">Widget „TYPO3-News“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetMaintenanceContract">
+                <source>Enable Maintenance Contract Widget</source>
+                <target state="translated">Widget „Wartungsvertrag“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetQuickLinks">
+                <source>Enable Quick Links Widget</source>
+                <target state="translated">Widget „Schnellzugriff“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetSiteHealth">
+                <source>Enable Site Health Widget</source>
+                <target state="translated">Widget „Website-Zustand“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetExtensionUpdates">
+                <source>Enable Extension Updates Widget</source>
+                <target state="translated">Widget „Extension-Updates“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetEditorGuide">
+                <source>Enable Editor Guide Widget</source>
+                <target state="translated">Widget „Leitfaden für Redakteure“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetContentActivity">
+                <source>Enable Content Activity Widget</source>
+                <target state="translated">Widget „Inhaltsaktivität“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetRecentChanges">
+                <source>Enable Recently Changed Widget</source>
+                <target state="translated">Widget „Zuletzt geändert“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="enableWidgetStorage">
+                <source>Enable Storage Widget</source>
+                <target state="translated">Widget „Speicher“ aktivieren</target>
+            </trans-unit>
+            <trans-unit id="activityWeeks">
+                <source>Content Activity: number of weeks (1-52)</source>
+                <target state="translated">Inhaltsaktivität: Anzahl der Wochen (1-52)</target>
+            </trans-unit>
+            <trans-unit id="recentChangesCount">
+                <source>Recently Changed: number of records (1-25)</source>
+                <target state="translated">Zuletzt geändert: Anzahl der Datensätze (1-25)</target>
+            </trans-unit>
+            <!-- API / data sources -->
+            <trans-unit id="typo3VersionApiUrl">
+                <source>TYPO3 Version API URL</source>
+                <target state="translated">URL der TYPO3-Versions-API</target>
+            </trans-unit>
+            <trans-unit id="typo3NewsFeedUrl">
+                <source>TYPO3 News RSS Feed URL</source>
+                <target state="translated">URL des TYPO3-News-RSS-Feeds</target>
+            </trans-unit>
+            <trans-unit id="newsCacheTtl">
+                <source>News Cache TTL (seconds)</source>
+                <target state="translated">Cache-Lebensdauer der News (Sekunden)</target>
+            </trans-unit>
+            <trans-unit id="versionCacheTtl">
+                <source>Version Cache TTL (seconds)</source>
+                <target state="translated">Cache-Lebensdauer der Version (Sekunden)</target>
+            </trans-unit>
+            <trans-unit id="newsItemCount">
+                <source>Number of News Items to Display</source>
+                <target state="translated">Anzahl der anzuzeigenden News-Einträge</target>
+            </trans-unit>
+            <trans-unit id="requestTimeout">
+                <source>HTTP Request Timeout (seconds)</source>
+                <target state="translated">Zeitlimit für HTTP-Anfragen (Sekunden)</target>
+            </trans-unit>
+            <!-- Branding -->
+            <trans-unit id="agencyName">
+                <source>Agency Name</source>
+                <target state="translated">Name der Agentur</target>
+            </trans-unit>
+            <trans-unit id="agencyEmail">
+                <source>Agency E-Mail Address</source>
+                <target state="translated">E-Mail-Adresse der Agentur</target>
+            </trans-unit>
+            <trans-unit id="agencyPhone">
+                <source>Agency Phone Number</source>
+                <target state="translated">Telefonnummer der Agentur</target>
+            </trans-unit>
+            <trans-unit id="agencyWebsite">
+                <source>Agency Website URL</source>
+                <target state="translated">Website-URL der Agentur</target>
+            </trans-unit>
+            <trans-unit id="welcomeMessage">
+                <source>Welcome Message (HTML allowed)</source>
+                <target state="translated">Willkommensnachricht (HTML erlaubt)</target>
+            </trans-unit>
+            <trans-unit id="showAgencyLogo">
+                <source>Show Agency Logo</source>
+                <target state="translated">Agentur-Logo anzeigen</target>
+            </trans-unit>
+            <!-- Legal -->
+            <trans-unit id="legalRepresentative">
+                <source>Legal Representative (owner or managing directors)</source>
+                <target state="translated">Vertretungsberechtigte (Inhaber oder Geschäftsführer)</target>
+            </trans-unit>
+            <trans-unit id="legalSeat">
+                <source>Registered Office</source>
+                <target state="translated">Sitz des Unternehmens</target>
+            </trans-unit>
+            <trans-unit id="legalRegister">
+                <source>Register Court and Register Number</source>
+                <target state="translated">Registergericht und Registernummer</target>
+            </trans-unit>
+            <trans-unit id="imprintUrl">
+                <source>Imprint URL</source>
+                <target state="translated">URL des Impressums</target>
+            </trans-unit>
+            <trans-unit id="privacyUrl">
+                <source>Privacy Policy URL</source>
+                <target state="translated">URL der Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="termsUrl">
+                <source>Terms and Conditions URL</source>
+                <target state="translated">URL der Allgemeinen Geschäftsbedingungen</target>
+            </trans-unit>
+            <trans-unit id="newsletterUrl">
+                <source>Customer Newsletter URL (leave empty to hide)</source>
+                <target state="translated">URL des Kunden-Newsletters (leer lassen zum Ausblenden)</target>
+            </trans-unit>
+            <!-- Quick links -->
+            <trans-unit id="customQuickLinks">
+                <source>Custom Quick Links (label|url|icon-identifier, one per line)</source>
+                <target state="translated">Eigene Schnellzugriffe (Bezeichnung|URL|Icon-Identifier, einer pro Zeile)</target>
+            </trans-unit>
+            <!-- Maintenance -->
+            <trans-unit id="contractRenewalWarningDays">
+                <source>Contract Renewal Warning Days</source>
+                <target state="translated">Tage vor Vertragsende für den Verlängerungshinweis</target>
+            </trans-unit>
+            <trans-unit id="showContractSignupPrompt">
+                <source>Show Contract Signup Prompt When No Contract Exists</source>
+                <target state="translated">Hinweis zum Vertragsabschluss anzeigen, wenn kein Vertrag vorhanden ist</target>
+            </trans-unit>
+            <trans-unit id="contractSignupUrl">
+                <source>Contract Signup URL</source>
+                <target state="translated">URL für den Vertragsabschluss</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
