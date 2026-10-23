@@ -44,7 +44,7 @@ final class ExtensionConfigurationManagerTest extends TestCase
     #[Test]
     public function getReturnsCachedInstanceOnSubsequentCalls(): void
     {
-        $this->extensionConfiguration->expects(self::once())->method('get')->willReturn([]);
+        $this->extensionConfiguration->expects($this->once())->method('get')->willReturn([]);
 
         $first = $this->subject->get();
         $second = $this->subject->get();

@@ -62,7 +62,7 @@ final class Typo3VersionServiceTest extends TestCase
         ];
 
         $this->cache->method('get')->willReturn($cachedData);
-        $this->requestFactory->expects(self::never())->method('request');
+        $this->requestFactory->expects($this->never())->method('request');
 
         self::assertSame($cachedData, $this->subject->getVersionData(self::API_URL, 86400, 10));
     }
@@ -104,7 +104,7 @@ final class Typo3VersionServiceTest extends TestCase
     {
         $this->cache->method('get')->willReturn(false);
         $this->requestFactory
-            ->expects(self::once())
+            ->expects($this->once())
             ->method('request')
             ->willReturn($this->createResponse(500, []));
 
@@ -114,7 +114,7 @@ final class Typo3VersionServiceTest extends TestCase
     #[Test]
     public function hasCachedDataChecksVersionSpecificCacheEntry(): void
     {
-        $this->cache->expects(self::once())->method('has')->willReturn(true);
+        $this->cache->expects($this->once())->method('has')->willReturn(true);
 
         self::assertTrue($this->subject->hasCachedData(self::API_URL));
     }
@@ -157,7 +157,7 @@ final class Typo3VersionServiceTest extends TestCase
     public function getVersionDataMarksCheckAsFailedOnHttpErrorAndDoesNotCacheIt(): void
     {
         $this->cache->method('get')->willReturn(false);
-        $this->cache->expects(self::never())->method('set');
+        $this->cache->expects($this->never())->method('set');
         $this->requestFactory
             ->method('request')
             ->willThrowException(new \RuntimeException('Connection refused'));
@@ -184,7 +184,7 @@ final class Typo3VersionServiceTest extends TestCase
     {
         $this->cache->method('get')->willReturn(false);
         $this->requestFactory->method('request')->willReturn($this->createResponse(200, ['version' => '14.3.5']));
-        $this->cache->expects(self::once())->method('set')->with(self::anything(), self::anything(), [], 86400);
+        $this->cache->expects($this->once())->method('set')->with(self::anything(), self::anything(), [], 86400);
 
         $this->subject->getVersionData(self::API_URL, 86400, 10);
     }

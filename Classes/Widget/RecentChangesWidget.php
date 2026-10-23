@@ -11,13 +11,13 @@ declare(strict_types=1);
 
 namespace JWeiland\JwDashboard\Widget;
 
-use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use JWeiland\JwDashboard\Configuration\DashboardExtConf;
 use JWeiland\JwDashboard\Configuration\ExtensionConfigurationManager;
 use JWeiland\JwDashboard\Service\RecentChangesService;
 use Symfony\Component\DependencyInjection\Attribute\AsTaggedItem;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 
 /**
  * Timeline of the latest edited pages and content elements with direct edit links

@@ -11,13 +11,13 @@ declare(strict_types=1);
 
 namespace JWeiland\JwDashboard\Widget;
 
-use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
-use TYPO3\CMS\Backend\Module\ModuleInterface;
 use JWeiland\JwDashboard\Configuration\DashboardExtConf;
 use JWeiland\JwDashboard\Configuration\ExtensionConfigurationManager;
 use Symfony\Component\DependencyInjection\Attribute\AsTaggedItem;
+use TYPO3\CMS\Backend\Module\ModuleInterface;
 use TYPO3\CMS\Backend\Module\ModuleProvider;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
 
 #[AsTaggedItem(priority: 50)]
