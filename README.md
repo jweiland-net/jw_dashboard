@@ -1,104 +1,68 @@
-# JW Dashboard — `EXT:jw_dashboard`
+# TYPO3 Extension `jw_dashboard`
 
-A configurable TYPO3 14 LTS backend module that gives editors an at-a-glance
-overview of their project's health, version status, news, and contract
-information — all powered by jweiland.net tooling.
+[![Packagist][packagist-logo-stable]][extension-packagist-url]
+[![Latest Stable Version][extension-build-shield]][extension-ter-url]
+[![Total Downloads][extension-downloads-badge]][extension-packagist-url]
+[![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
+[![TYPO3 14.3][TYPO3-shield]][TYPO3-14-url]
 
----
+![Build Status](https://github.com/jweiland-net/jw-dashboard/actions/workflows/ci.yml/badge.svg)
 
-## Features
+`jw_dashboard` is an extension for TYPO3 CMS. It adds a backend module that gives
+editors an overview of their project: TYPO3 version status, news, maintenance
+contracts, site health and the contact data of their agency.
 
-| Widget | Description |
-|---|---|
-| **TYPO3 Version** | Installed vs. latest version, highlights security updates |
-| **TYPO3 News** | Latest entries from the official TYPO3 news feed |
-| **Maintenance Contract** | Contract records with renewal warnings |
-| **Quick Links** | Configurable shortcuts to backend modules or external URLs |
-| **Site Health** | Pages, files, broken links, scheduled task counts |
-| **Installed Extensions** | List of active third-party extensions |
-| **Editor Guide** | Configurable welcome message and agency contact card |
-| **Content Activity** | Weekly column chart of record changes with KPIs |
-| **Recently Changed** | Latest edited pages and content elements |
-| **Storage** | FAL storage usage by file type |
+## 1 Features
 
-Every widget can be toggled individually via extension settings.
+* Configurable widgets: TYPO3 version, TYPO3 news, maintenance contracts, quick links,
+  site health, installed extensions, editor guide, content activity, recent changes
+  and storage
+* "jweiland.net Support" widget for the TYPO3 core dashboard (if EXT:dashboard is installed)
 
-### TYPO3 core dashboard widget
+## 2 Usage
 
-If the system extension `dashboard` is installed, the widget **jweiland.net Support**
-(group *jweiland.net*) is available in *Dashboard › Add widget*. It shows the agency
-contact, help links and the system status in the layout of a classic agency support
-widget and links to the JW Dashboard module. It has no data of its own: everything is
-read from the configured JW Dashboard widgets (see `Specification/Widgets/CoreDashboard.rst`).
+### 2.1 Installation
 
----
+#### Installation using Composer
 
-## Requirements
+The recommended way to install the extension is using Composer.
 
-- TYPO3 **14.0.0+**
-- PHP **8.2+**
+Run the following command within your Composer based TYPO3 project:
 
----
-
-## Installation
-
-```bash
+```
 composer require jweiland/jw-dashboard
-vendor/bin/typo3 extension:activate jw_dashboard
-vendor/bin/typo3 database:updateschema
 ```
 
----
+#### Installation as extension from TYPO3 Extension Repository (TER)
 
-## Configuration
+Download and install `jw_dashboard` with the extension manager module.
 
-Open **Admin Tools → Settings → Extension Configuration → jw_dashboard**.
+### 2.2 Minimal setup
 
-All settings are documented in `Specification/Configuration/ExtensionSettings.rst`.
+1) Update the database schema.
+2) Configure the extension in *Admin Tools › Settings › Extension Configuration › jw_dashboard*.
+3) Open the *JW Dashboard* module or add the *jweiland.net Support* widget to the TYPO3 dashboard.
 
----
+## 3 Support
 
-## Usage
+Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/jw-dashboard/issues).
 
-JW Dashboard is a standalone main module directly below the TYPO3 Dashboard
-(no page tree). Maintenance contracts and contact persons are global records,
-created by admins on the root level (page id 0) via **Content → Records** or the
-**Manage contracts** link in the Maintenance Contract widget.
+For commercial support, please contact us at [support@jweiland.net](mailto:support@jweiland.net).
 
-Demo contracts and contact persons: `vendor/bin/typo3 jwdashboard:sample-data`
-(remove with `--remove`).
+<!-- MARKDOWN LINKS & IMAGES -->
 
-Styles (`Resources/Public/Css/dashboard.css`) and JavaScript
-(`Resources/Public/JavaScript/dashboard.js`, native ES module) are shipped
-ready to use, no build step is required.
+[extension-build-shield]: https://poser.pugx.org/jweiland/jw-dashboard/v/stable.svg?style=for-the-badge
 
----
+[extension-downloads-badge]: https://poser.pugx.org/jweiland/jw-dashboard/d/total.svg?style=for-the-badge
 
-## Documentation
+[extension-monthly-downloads]: https://poser.pugx.org/jweiland/jw-dashboard/d/monthly?style=for-the-badge
 
-Full documentation lives in `Specification/`. The entry point is
-`Specification/Index.rst`.
+[extension-ter-url]: https://extensions.typo3.org/extension/jw_dashboard/
 
----
+[extension-packagist-url]: https://packagist.org/packages/jweiland/jw-dashboard/
 
-## Tests
+[packagist-logo-stable]: https://img.shields.io/badge/--grey.svg?style=for-the-badge&logo=packagist&logoColor=white
 
-```bash
-composer install
+[TYPO3-14-url]: https://get.typo3.org/version/14
 
-# Unit tests
-composer test:unit
-
-# Functional tests (real TYPO3 instance incl. EXT:dashboard), e.g. with SQLite
-typo3DatabaseDriver=pdo_sqlite composer test:functional
-```
-
-The phpunit configurations live in `Build/phpunit/`. Functional tests also run against
-MySQL/MariaDB via the usual `typo3DatabaseHost`, `typo3DatabaseName`, `typo3DatabaseUsername`
-and `typo3DatabasePassword` environment variables.
-
----
-
-## License
-
-GPL-2.0-or-later — see `LICENSE.txt`.
+[TYPO3-shield]: https://img.shields.io/badge/TYPO3-14.3-green.svg?style=for-the-badge&logo=typo3
