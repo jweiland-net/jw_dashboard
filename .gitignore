@@ -1,1 +1,6 @@
 /.Build/
+/composer.lock
+/composer.json.orig
+/composer.json.testing
+/packages
+/var

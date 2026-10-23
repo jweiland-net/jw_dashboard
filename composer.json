@@ -26,8 +26,8 @@
 	"homepage": "https://jweiland.net",
 	"support": {
 		"email": "projects@jweiland.net",
-		"issues": "https://github.com/jweiland-net/jw-dashboard/issues",
-		"source": "https://github.com/jweiland-net/jw-dashboard"
+		"issues": "https://github.com/jweiland-net/jw_dashboard/issues",
+		"source": "https://github.com/jweiland-net/jw_dashboard"
 	},
 	"require": {
 		"php": "^8.2",

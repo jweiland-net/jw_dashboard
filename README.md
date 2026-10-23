@@ -6,7 +6,7 @@
 [![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
 [![TYPO3 14.3][TYPO3-shield]][TYPO3-14-url]
 
-![Build Status](https://github.com/jweiland-net/jw-dashboard/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/jweiland-net/jw_dashboard/actions/workflows/ci.yml/badge.svg)
 
 `jw_dashboard` is an extension for TYPO3 CMS. It adds a backend module that gives
 editors an overview of their project: TYPO3 version status, news, maintenance
@@ -45,7 +45,7 @@ Download and install `jw_dashboard` with the extension manager module.
 
 ## 3 Support
 
-Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/jw-dashboard/issues).
+Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/jw_dashboard/issues).
 
 For commercial support, please contact us at [support@jweiland.net](mailto:support@jweiland.net).
 
